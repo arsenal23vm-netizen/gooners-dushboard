@@ -1,0 +1,9 @@
+window.GOONER_ADS = {
+  enabled: false,
+  provider: "adsense",
+  adsenseClient: "ca-pub-XXXXXXXXXXXXXXXX",
+  slots: {
+    "dashboard-bottom": "0000000000",
+    "timeline-bottom": "0000000000"
+  }
+};

@@ -63,6 +63,12 @@ main {
   background: rgba(17, 24, 39, 0.28);
 }
 
+.nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .back-link {
   border: 1px solid rgba(255, 255, 255, 0.38);
   border-radius: 999px;
@@ -70,6 +76,36 @@ main {
   color: rgba(255, 255, 255, 0.9);
   font-size: 13px;
   font-weight: 800;
+}
+
+.ad-slot {
+  width: min(980px, calc(100% - 24px));
+  margin: 0 auto 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  padding: 8px;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(17, 24, 39, 0.62);
+  text-align: center;
+}
+
+.ad-slot span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ad-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 78px;
+  border: 1px dashed rgba(255, 255, 255, 0.36);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
 }
 
 .hero-copy {
@@ -225,6 +261,7 @@ main {
 
 @media (max-width: 720px) {
   .topbar,
+  .nav-actions,
   .controls {
     grid-template-columns: 1fr;
   }

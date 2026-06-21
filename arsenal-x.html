@@ -19,7 +19,10 @@
         <span class="brand-mark">A</span>
         <span>Gooner’s Dushboard</span>
       </a>
-      <a class="back-link" href="arsenal.html">Dashboardへ戻る</a>
+      <div class="nav-actions">
+        <a class="back-link" href="arsenal.html">Dashboardへ戻る</a>
+        <a class="back-link" href="privacy.html">Privacy</a>
+      </div>
     </nav>
 
     <section class="hero-copy">
@@ -46,6 +49,11 @@
     <section class="timeline-grid" id="timelineGrid" aria-label="選手Xタイムライン"></section>
   </main>
 
+  <aside class="ad-slot ad-slot-bottom" data-ad-slot="timeline-bottom">
+    <span>Advertisement</span>
+    <div class="ad-placeholder">Ad space reserved for future sponsor or AdSense placement.</div>
+  </aside>
+
   <template id="timelineTemplate">
     <article class="timeline-card">
       <div class="card-head">
@@ -59,6 +67,8 @@
     </article>
   </template>
 
+  <script src="ads-config.js"></script>
+  <script src="ads.js"></script>
   <script src="arsenal-x.js"></script>
 </body>
 </html>
