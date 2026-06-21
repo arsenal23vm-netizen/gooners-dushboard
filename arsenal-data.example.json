@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "source": "custom-json",
+    "updatedAt": "2026-06-21T12:00:00+09:00",
+    "premierLeagueMode": "live standings",
+    "championsLeagueMode": "live league phase"
+  },
+  "premierLeague": [
+    {
+      "team": "Arsenal",
+      "played": 0,
+      "won": 0,
+      "drawn": 0,
+      "lost": 0,
+      "goalDifference": 0,
+      "points": 0
+    }
+  ],
+  "championsLeague": [
+    {
+      "team": "Arsenal",
+      "played": 0,
+      "goalDifference": 0,
+      "points": 0
+    }
+  ],
+  "fixtures": [
+    {
+      "date": "2026-08-21",
+      "competition": "Premier League",
+      "opponent": "Coventry City",
+      "venue": "Home",
+      "location": "Emirates Stadium",
+      "opponentForm": ["win", "loss", "draw", "unknown", "win"]
+    }
+  ],
+  "scorers": [
+    {
+      "player": "Bukayo Saka",
+      "goals": 0
+    }
+  ],
+  "assists": [
+    {
+      "player": "Martin Ødegaard",
+      "assists": 0
+    }
+  ]
+}

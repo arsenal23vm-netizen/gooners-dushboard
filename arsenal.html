@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gooner’s Dushboard</title>
+  <meta name="description" content="Gooner’s Dushboard is a fan-made Arsenal dashboard covering Premier League standings, UEFA Champions League status, upcoming fixtures, scorers, assists, and player X timelines.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gooner’s Dushboard">
+  <meta property="og:description" content="A fan-made Arsenal information hub for standings, Champions League, fixtures, scorers, assists, and player X timelines.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gooner-dashboard-bg.png">
+  <link rel="stylesheet" href="arsenal.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Gooner’s Dushboard",
+      "description": "A fan-made Arsenal information hub for standings, Champions League, fixtures, scorers, assists, and player X timelines.",
+      "inLanguage": "ja"
+    }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="topbar" aria-label="メインナビゲーション">
+      <a class="brand" href="#top">
+        <span class="brand-mark">A</span>
+        <span>Gooner’s Dushboard</span>
+      </a>
+      <div class="nav-links">
+        <a href="#premier-league">Premier League</a>
+        <a href="#champions-league">Champions League</a>
+        <a href="#fixtures">Next 5</a>
+        <a href="#rankings">Rankings</a>
+        <a href="arsenal-x.html">Players X</a>
+      </div>
+    </nav>
+
+    <section class="hero" id="top">
+      <p class="eyebrow">2026/27 Arsenal Intelligence Hub</p>
+      <h1>Gooner’s Dushboard</h1>
+      <p class="lead">
+        アーセナルの現在地を外部のファンにも一瞬で伝えるための一枚型ダッシュボード。
+        リーグ順位、欧州戦、直近の相手、得点者、アシストまで、試合前に知りたい情報を凝縮します。
+      </p>
+    </section>
+  </header>
+
+  <main class="dashboard-grid" aria-label="アーセナル主要ダッシュボード">
+    <article class="panel table-panel" id="premier-league">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Premier League</p>
+          <h2>26/27 暫定順位表</h2>
+        </div>
+        <span class="panel-chip" id="plMode">開幕前: A-Z</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Team</th>
+              <th>Pl</th>
+              <th>W</th>
+              <th>D</th>
+              <th>L</th>
+              <th>GD</th>
+              <th>Pts</th>
+            </tr>
+          </thead>
+          <tbody id="premierLeagueTable"></tbody>
+        </table>
+      </div>
+    </article>
+
+    <article class="panel table-panel" id="champions-league">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">UEFA Champions League</p>
+          <h2>リーグフェーズ仮順位表</h2>
+        </div>
+        <span class="panel-chip" id="uclMode">仮置き</span>
+      </div>
+      <div class="ucl-summary">
+        <div>
+          <strong>Format</strong>
+          <span>36クラブ / 8試合 / 1表</span>
+        </div>
+        <div>
+          <strong>Status</strong>
+          <span>開幕前の仮データ</span>
+        </div>
+      </div>
+      <div class="table-wrap compact-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Club</th>
+              <th>Pl</th>
+              <th>GD</th>
+              <th>Pts</th>
+            </tr>
+          </thead>
+          <tbody id="championsLeagueTable"></tbody>
+        </table>
+      </div>
+    </article>
+
+    <section class="right-column">
+      <article class="panel fixtures-panel" id="fixtures">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Upcoming Arsenal Matches</p>
+            <h2>今後5試合</h2>
+          </div>
+          <span class="panel-chip">相手直近5戦</span>
+        </div>
+        <div class="fixture-list" id="fixtureList"></div>
+      </article>
+
+      <section class="rankings-grid" id="rankings">
+        <article class="panel ranking-panel">
+          <div class="panel-header tight">
+            <div>
+              <p class="eyebrow">Goals</p>
+              <h2>得点者</h2>
+            </div>
+          </div>
+          <ol class="ranking-list" id="scorerList"></ol>
+        </article>
+
+        <article class="panel ranking-panel">
+          <div class="panel-header tight">
+            <div>
+              <p class="eyebrow">Assists</p>
+              <h2>アシスト</h2>
+            </div>
+          </div>
+          <ol class="ranking-list" id="assistList"></ol>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="arsenal.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsenal Players X Timeline</title>
+  <meta name="description" content="A fan-made page collecting X timelines from Arsenal players, Mikel Arteta, staff, and official club accounts.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Arsenal Players X Timeline">
+  <meta property="og:description" content="Follow Arsenal players, Mikel Arteta, staff, and official club X timelines in one place.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gooner-dashboard-bg.png">
+  <link rel="stylesheet" href="arsenal-x.css">
+</head>
+<body>
+  <header class="page-hero">
+    <nav class="topbar" aria-label="ページナビゲーション">
+      <a class="brand" href="arsenal.html">
+        <span class="brand-mark">A</span>
+        <span>Gooner’s Dushboard</span>
+      </a>
+      <a class="back-link" href="arsenal.html">Dashboardへ戻る</a>
+    </nav>
+
+    <section class="hero-copy">
+      <p class="eyebrow">Arsenal Players on X</p>
+      <h1>選手のXだけを流すタイムライン</h1>
+      <p>
+        アーセナル所属選手の公式・本人アカウントだけを集めたページです。
+        情報収集用に、選手ごとの投稿をカードで並べて見られるようにしています。
+      </p>
+    </section>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="表示コントロール">
+      <label class="search-box">
+        <span>選手検索</span>
+        <input id="playerSearch" type="search" placeholder="例: Saka, Rice, Kai">
+      </label>
+      <p class="note">
+        Xの埋め込みが表示されない場合は、ネット接続、ブラウザのトラッキング防止、広告ブロック設定を確認してください。
+      </p>
+    </section>
+
+    <section class="timeline-grid" id="timelineGrid" aria-label="選手Xタイムライン"></section>
+  </main>
+
+  <template id="timelineTemplate">
+    <article class="timeline-card">
+      <div class="card-head">
+        <div>
+          <p class="position"></p>
+          <h2></h2>
+        </div>
+        <a class="x-link" target="_blank" rel="noopener noreferrer">Xで開く</a>
+      </div>
+      <div class="timeline-frame"></div>
+    </article>
+  </template>
+
+  <script src="arsenal-x.js"></script>
+</body>
+</html>

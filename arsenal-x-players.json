@@ -1,0 +1,176 @@
+[
+  {
+    "name": "Mikel Arteta",
+    "handle": "m8arteta",
+    "position": "Manager",
+    "group": "Staff"
+  },
+  {
+    "name": "Arsenal",
+    "handle": "Arsenal",
+    "position": "Club official",
+    "group": "Club"
+  },
+  {
+    "name": "David Raya",
+    "handle": "daviidraya1",
+    "position": "Goalkeeper",
+    "group": "Player"
+  },
+  {
+    "name": "Kepa Arrizabalaga",
+    "handle": "kepa_46",
+    "position": "Goalkeeper",
+    "group": "Player"
+  },
+  {
+    "name": "William Saliba",
+    "handle": "wilosaliba",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Gabriel Magalhães",
+    "handle": "biel_m04",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Jurrien Timber",
+    "handle": "JurrienTimber",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Ben White",
+    "handle": "ben6white",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Riccardo Calafiori",
+    "handle": "riccalafiori",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Oleksandr Zinchenko",
+    "handle": "Zinchenko_96",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Takehiro Tomiyasu",
+    "handle": "Tomiyasu",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Jakub Kiwior",
+    "handle": "",
+    "position": "Defender",
+    "group": "Player"
+  },
+  {
+    "name": "Myles Lewis-Skelly",
+    "handle": "",
+    "position": "Defender / Midfielder",
+    "group": "Player"
+  },
+  {
+    "name": "Declan Rice",
+    "handle": "_DeclanRice",
+    "position": "Midfielder",
+    "group": "Player"
+  },
+  {
+    "name": "Martin Ødegaard",
+    "handle": "odegaard98",
+    "position": "Midfielder",
+    "group": "Player"
+  },
+  {
+    "name": "Kai Havertz",
+    "handle": "kaihavertz29",
+    "position": "Midfielder / Forward",
+    "group": "Player"
+  },
+  {
+    "name": "Mikel Merino",
+    "handle": "mikelmerino1",
+    "position": "Midfielder",
+    "group": "Player"
+  },
+  {
+    "name": "Martin Zubimendi",
+    "handle": "",
+    "position": "Midfielder",
+    "group": "Player"
+  },
+  {
+    "name": "Ethan Nwaneri",
+    "handle": "",
+    "position": "Midfielder / Forward",
+    "group": "Player"
+  },
+  {
+    "name": "Bukayo Saka",
+    "handle": "BukayoSaka87",
+    "position": "Forward",
+    "group": "Player"
+  },
+  {
+    "name": "Gabriel Martinelli",
+    "handle": "gabimartinelli",
+    "position": "Forward",
+    "group": "Player"
+  },
+  {
+    "name": "Leandro Trossard",
+    "handle": "LTrossard",
+    "position": "Forward",
+    "group": "Player"
+  },
+  {
+    "name": "Gabriel Jesus",
+    "handle": "gabrieljesus9",
+    "position": "Forward",
+    "group": "Player"
+  },
+  {
+    "name": "Reiss Nelson",
+    "handle": "ReissNelson9",
+    "position": "Forward",
+    "group": "Player"
+  },
+  {
+    "name": "Albert Stuivenberg",
+    "handle": "",
+    "position": "Assistant manager",
+    "group": "Staff"
+  },
+  {
+    "name": "Miguel Molina",
+    "handle": "",
+    "position": "Assistant coach",
+    "group": "Staff"
+  },
+  {
+    "name": "Gabriel Heinze",
+    "handle": "",
+    "position": "First-team coach",
+    "group": "Staff"
+  },
+  {
+    "name": "Nicolas Jover",
+    "handle": "",
+    "position": "Set-piece coach",
+    "group": "Staff"
+  },
+  {
+    "name": "Iñaki Caña",
+    "handle": "",
+    "position": "Goalkeeping coach",
+    "group": "Staff"
+  }
+]
