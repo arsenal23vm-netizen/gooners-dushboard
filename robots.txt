@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://arsenal23vm-netizen.github.io/gooners-dushboard/sitemap.xml
