@@ -146,6 +146,16 @@ main { padding-bottom: 24px; }
 .radar-table tbody tr:last-child td { border-bottom: 0; }
 .radar-table tbody tr[data-hidden="true"] { display: none; }
 .player-name { color: var(--navy); font-weight: 900; }
+.player-photo,
+.player-photo-placeholder {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+.player-photo { object-fit: cover; background: #f3f4f6; }
+.player-photo-placeholder { color: white; background: var(--navy); font-size: 11px; font-weight: 900; }
 .market-value strong { display: block; color: var(--navy); }
 .market-value small { color: var(--muted); font-size: 9px; }
 .probability { display: flex; align-items: center; gap: 7px; }

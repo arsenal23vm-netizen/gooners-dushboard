@@ -26,8 +26,19 @@ function createArticleCard(article) {
 function createRadarRow(item, index) {
   const row = document.createElement("tr");
   row.dataset.tier = item.tier;
+  const playerInitials = item.player
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part[0])
+    .join("")
+    .toUpperCase();
+  const photo = item.photo
+    ? `<img class="player-photo" src="${item.photo}" alt="${item.player}" loading="lazy">`
+    : `<span class="player-photo-placeholder" aria-label="写真未設定">${playerInitials}</span>`;
   row.innerHTML = `
     <td>${index + 1}</td>
+    <td>${photo}</td>
     <td class="player-name">${item.player}</td>
     <td>${item.position}</td>
     <td>${item.club}</td>
@@ -44,6 +55,16 @@ function createRadarRow(item, index) {
     <td><span class="deal-type">${item.dealType}</span></td>
     <td><a class="related-link" href="${item.articleUrl}" target="_blank" rel="noopener noreferrer">${item.articleLabel} ↗</a></td>
   `;
+
+  const image = row.querySelector(".player-photo");
+  image?.addEventListener("error", () => {
+    const fallback = document.createElement("span");
+    fallback.className = "player-photo-placeholder";
+    fallback.textContent = playerInitials;
+    fallback.setAttribute("aria-label", "写真を読み込めませんでした");
+    image.replaceWith(fallback);
+  });
+
   return row;
 }
 

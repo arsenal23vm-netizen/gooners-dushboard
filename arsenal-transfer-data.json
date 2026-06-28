@@ -41,6 +41,7 @@
   "radar": [
     {
       "player": "Morgan Rogers",
+      "photo": "",
       "position": "AM / LW",
       "club": "Aston Villa",
       "marketValue": "€90m",
@@ -53,6 +54,7 @@
     },
     {
       "player": "Jeremy Monga",
+      "photo": "",
       "position": "LW / RW",
       "club": "Leicester City",
       "marketValue": "€15m",
@@ -65,6 +67,7 @@
     },
     {
       "player": "Bruno Guimarães",
+      "photo": "",
       "position": "CM / DM",
       "club": "Newcastle United",
       "marketValue": "€80m",
@@ -77,6 +80,7 @@
     },
     {
       "player": "Sandro Tonali",
+      "photo": "",
       "position": "CM / DM",
       "club": "Newcastle United",
       "marketValue": "€80m",
@@ -89,6 +93,7 @@
     },
     {
       "player": "Ayyoub Bouaddi",
+      "photo": "",
       "position": "CM",
       "club": "LOSC Lille",
       "marketValue": "€50m",
@@ -101,6 +106,7 @@
     },
     {
       "player": "Alex Scott",
+      "photo": "",
       "position": "CM",
       "club": "Bournemouth",
       "marketValue": "€40m",
