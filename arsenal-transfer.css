@@ -128,12 +128,13 @@ main { padding-bottom: 24px; }
 .tier.high { color: white; background: var(--navy); }
 .tier.watch { color: #6b4a00; background: #fff0b3; }
 .article-card h3 { margin: 12px 0 8px; color: var(--navy); font-size: 19px; line-height: 1.25; }
+.article-title-link:hover { color: var(--arsenal-red); text-decoration: underline; }
 .article-card > p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .article-footer { justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 14px; }
 .article-footer .source { color: var(--muted); font-size: 11px; font-weight: 800; }
 .article-footer a { color: var(--arsenal-red); font-size: 12px; font-weight: 900; }
 
-.radar-panel { margin-top: 12px; padding: 14px; }
+.radar-panel { margin-bottom: 12px; padding: 14px; }
 .radar-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .radar-note { margin: -3px 0 10px; color: var(--muted); font-size: 11px; }
 .radar-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }

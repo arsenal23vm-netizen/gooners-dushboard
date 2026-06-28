@@ -14,10 +14,12 @@ function createArticleCard(article) {
   tier.className = `tier ${article.tier}`;
   tier.textContent = article.tierLabel;
   card.querySelector("time").textContent = article.date;
-  card.querySelector("h3").textContent = article.title;
+  const titleLink = card.querySelector(".article-title-link");
+  titleLink.textContent = article.title;
+  titleLink.href = article.url;
   card.querySelector("p").textContent = article.summary;
   card.querySelector(".source").textContent = article.source;
-  card.querySelector("a").href = article.url;
+  card.querySelector(".article-footer a").href = article.url;
   return card;
 }
 
@@ -40,7 +42,7 @@ function createRadarRow(item, index) {
       </div>
     </td>
     <td><span class="deal-type">${item.dealType}</span></td>
-    <td><a class="related-link" href="${item.articleUrl}" target="_blank" rel="noopener noreferrer">${item.articleLabel}</a></td>
+    <td><a class="related-link" href="${item.articleUrl}" target="_blank" rel="noopener noreferrer">${item.articleLabel} ↗</a></td>
   `;
   return row;
 }
