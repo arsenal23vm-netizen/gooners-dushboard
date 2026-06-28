@@ -45,11 +45,11 @@
       "club": "Aston Villa",
       "marketValue": "€90m",
       "marketValueUpdated": "Transfermarkt: 2026-06-03",
-      "probability": 45,
+      "probability": 50,
       "dealType": "完全移籍",
       "tier": "watch",
-      "articleLabel": "市場価値・分析",
-      "articleUrl": "https://www.transfermarkt.us/how-does-morgan-rogers-compare-to-other-arsenal-attackers-amp-what-is-his-best-position-/view/news/481816"
+      "articleLabel": "Sky最新報道",
+      "articleUrl": "https://www.skysports.com/transfer/news/32461/13555268/arsenal-transfer-news-club-stepping-up-interest-in-morgan-rogers-with-several-players-facing-uncertain-futures-at-emirates"
     },
     {
       "player": "Jeremy Monga",
@@ -57,23 +57,23 @@
       "club": "Leicester City",
       "marketValue": "€15m",
       "marketValueUpdated": "Transfermarkt: 2026-05-28",
-      "probability": 65,
+      "probability": 80,
       "dealType": "完全移籍",
       "tier": "watch",
-      "articleLabel": "関連報道",
-      "articleUrl": "https://www.fourfourtwo.com/team/arsenal-pip-manchester-united-and-chelsea-to-land-efl-wonderkid-report"
+      "articleLabel": "合意報道",
+      "articleUrl": "https://www.goal.com/en-gb/lists/arsenal-beat-host-of-clubs-to-sign-leicester-wonderkid-transfer-fee-agreed/blt533d5ec3b6d0c791"
     },
     {
       "player": "Bruno Guimarães",
       "position": "CM / DM",
       "club": "Newcastle United",
-      "marketValue": "確認中",
-      "marketValueUpdated": "最新評価を確認中",
-      "probability": 40,
+      "marketValue": "€80m",
+      "marketValueUpdated": "参考評価: 2026-06",
+      "probability": 50,
       "dealType": "完全移籍",
       "tier": "high",
-      "articleLabel": "BBC関連報道",
-      "articleUrl": "https://www.bbc.com/sport/football/teams/arsenal"
+      "articleLabel": "再提示報道",
+      "articleUrl": "https://www.skysports.com/football/news/11095/13558113/bruno-guimaraes-transfer-news-arsenal-preparing-second-approach-for-newcastle-captain-paper-talk"
     },
     {
       "player": "Sandro Tonali",
@@ -84,8 +84,8 @@
       "probability": 25,
       "dealType": "完全移籍",
       "tier": "high",
-      "articleLabel": "市場価値",
-      "articleUrl": "https://www.transfermarkt.jp/sandro-tonali/marktwertverlauf/spieler/397033"
+      "articleLabel": "Sky最新報道",
+      "articleUrl": "https://www.skysports.com/football/news/11095/13557952/arsenal-liverpool-man-utd-and-spurs-transfers-how-elliot-anderson-deal-could-affect-midfielder-market-this-summer"
     },
     {
       "player": "Ayyoub Bouaddi",
@@ -93,11 +93,11 @@
       "club": "LOSC Lille",
       "marketValue": "€50m",
       "marketValueUpdated": "Transfermarkt: 2026-06-01",
-      "probability": 25,
+      "probability": 35,
       "dealType": "完全移籍",
       "tier": "watch",
-      "articleLabel": "市場価値",
-      "articleUrl": "https://www.transfermarkt.de/ayyoub-bouaddi/marktwertverlauf/spieler/1097139"
+      "articleLabel": "接触報道",
+      "articleUrl": "https://www.football365.com/news/arsenal-romano-bouaddi-transfer-update-liverpool-contact"
     },
     {
       "player": "Alex Scott",
@@ -108,8 +108,8 @@
       "probability": 20,
       "dealType": "完全移籍",
       "tier": "watch",
-      "articleLabel": "市場価値",
-      "articleUrl": "https://www.transfermarkt.co.uk/bournemouth/marktwertanalyse/verein/989"
+      "articleLabel": "Sky最新報道",
+      "articleUrl": "https://www.skysports.com/football/news/11095/13557952/arsenal-liverpool-man-utd-and-spurs-transfers-how-elliot-anderson-deal-could-affect-midfielder-market-this-summer"
     }
   ],
   "xAccounts": [
