@@ -41,24 +41,75 @@
   "radar": [
     {
       "player": "Morgan Rogers",
-      "position": "Attacking midfielder / Winger",
-      "status": "Reported interest",
+      "position": "AM / LW",
+      "club": "Aston Villa",
+      "marketValue": "€90m",
+      "marketValueUpdated": "Transfermarkt: 2026-06-03",
+      "probability": 45,
+      "dealType": "完全移籍",
       "tier": "watch",
-      "note": "複数報道あり。公式確認なし"
+      "articleLabel": "市場価値・分析",
+      "articleUrl": "https://www.transfermarkt.us/how-does-morgan-rogers-compare-to-other-arsenal-attackers-amp-what-is-his-best-position-/view/news/481816"
     },
     {
       "player": "Jeremy Monga",
-      "position": "Winger",
-      "status": "Youth target",
+      "position": "LW / RW",
+      "club": "Leicester City",
+      "marketValue": "€15m",
+      "marketValueUpdated": "Transfermarkt: 2026-05-28",
+      "probability": 65,
+      "dealType": "完全移籍",
       "tier": "watch",
-      "note": "若手補強候補として報道"
+      "articleLabel": "関連報道",
+      "articleUrl": "https://www.fourfourtwo.com/team/arsenal-pip-manchester-united-and-chelsea-to-land-efl-wonderkid-report"
     },
     {
-      "player": "Official arrivals",
-      "position": "All positions",
-      "status": "Confirmed only",
-      "tier": "official",
-      "note": "Arsenal.com発表後に更新"
+      "player": "Bruno Guimarães",
+      "position": "CM / DM",
+      "club": "Newcastle United",
+      "marketValue": "確認中",
+      "marketValueUpdated": "最新評価を確認中",
+      "probability": 40,
+      "dealType": "完全移籍",
+      "tier": "high",
+      "articleLabel": "BBC関連報道",
+      "articleUrl": "https://www.bbc.com/sport/football/teams/arsenal"
+    },
+    {
+      "player": "Sandro Tonali",
+      "position": "CM / DM",
+      "club": "Newcastle United",
+      "marketValue": "€80m",
+      "marketValueUpdated": "Transfermarkt: 2026-06-03",
+      "probability": 25,
+      "dealType": "完全移籍",
+      "tier": "high",
+      "articleLabel": "市場価値",
+      "articleUrl": "https://www.transfermarkt.jp/sandro-tonali/marktwertverlauf/spieler/397033"
+    },
+    {
+      "player": "Ayyoub Bouaddi",
+      "position": "CM",
+      "club": "LOSC Lille",
+      "marketValue": "€50m",
+      "marketValueUpdated": "Transfermarkt: 2026-06-01",
+      "probability": 25,
+      "dealType": "完全移籍",
+      "tier": "watch",
+      "articleLabel": "市場価値",
+      "articleUrl": "https://www.transfermarkt.de/ayyoub-bouaddi/marktwertverlauf/spieler/1097139"
+    },
+    {
+      "player": "Alex Scott",
+      "position": "CM",
+      "club": "Bournemouth",
+      "marketValue": "€40m",
+      "marketValueUpdated": "Transfermarkt: 2026-06",
+      "probability": 20,
+      "dealType": "完全移籍",
+      "tier": "watch",
+      "articleLabel": "市場価値",
+      "articleUrl": "https://www.transfermarkt.co.uk/bournemouth/marktwertanalyse/verein/989"
     }
   ],
   "xAccounts": [

@@ -55,14 +55,34 @@
         </div>
         <div class="article-grid" id="articleGrid"></div>
       </div>
+    </section>
 
-      <aside class="radar-panel">
-        <div class="section-heading">
+    <section class="radar-panel">
+      <div class="section-heading radar-heading">
+        <div>
           <p class="eyebrow">Transfer Radar</p>
           <h2>名前が挙がった選手</h2>
         </div>
-        <div class="radar-list" id="radarList"></div>
-      </aside>
+        <span class="refresh-badge">5分ごとにデータ再取得</span>
+      </div>
+      <p class="radar-note">市場価値は外部評価の参考値、移籍確度は報道内容を基にした編集部推定です。公式発表ではありません。</p>
+      <div class="radar-table-wrap">
+        <table class="radar-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>選手名</th>
+              <th>ポジション</th>
+              <th>所属チーム</th>
+              <th>市場価値</th>
+              <th>移籍確度</th>
+              <th>移籍形態</th>
+              <th>関連記事</th>
+            </tr>
+          </thead>
+          <tbody id="radarList"></tbody>
+        </table>
+      </div>
     </section>
 
     <section class="x-section">

@@ -1,4 +1,4 @@
-const TRANSFER_DATA_URL = "arsenal-transfer-data.json";
+const TRANSFER_DATA_URL = window.ARSENAL_TRANSFER_DATA_URL || "arsenal-transfer-data.json";
 const articleGrid = document.getElementById("articleGrid");
 const radarList = document.getElementById("radarList");
 const xGrid = document.getElementById("xGrid");
@@ -21,18 +21,28 @@ function createArticleCard(article) {
   return card;
 }
 
-function createRadarItem(item) {
-  const article = document.createElement("article");
-  article.className = "radar-item";
-  article.dataset.tier = item.tier;
-  article.innerHTML = `
-    <div class="radar-row">
-      <h3>${item.player}</h3>
-      <span class="status">${item.status}</span>
-    </div>
-    <p>${item.position} / ${item.note}</p>
+function createRadarRow(item, index) {
+  const row = document.createElement("tr");
+  row.dataset.tier = item.tier;
+  row.innerHTML = `
+    <td>${index + 1}</td>
+    <td class="player-name">${item.player}</td>
+    <td>${item.position}</td>
+    <td>${item.club}</td>
+    <td class="market-value">
+      <strong>${item.marketValue}</strong>
+      <small>${item.marketValueUpdated}</small>
+    </td>
+    <td>
+      <div class="probability">
+        <strong>${item.probability}%</strong>
+        <span class="probability-bar"><span style="width:${item.probability}%"></span></span>
+      </div>
+    </td>
+    <td><span class="deal-type">${item.dealType}</span></td>
+    <td><a class="related-link" href="${item.articleUrl}" target="_blank" rel="noopener noreferrer">${item.articleLabel}</a></td>
   `;
-  return article;
+  return row;
 }
 
 function createXCard(account) {
@@ -76,11 +86,25 @@ function loadXWidgets() {
 }
 
 function render(data) {
+  articleGrid.innerHTML = "";
+  radarList.innerHTML = "";
+  xGrid.innerHTML = "";
   articleGrid.append(...data.articles.map(createArticleCard));
-  radarList.append(...data.radar.map(createRadarItem));
+  radarList.append(...data.radar.map(createRadarRow));
   xGrid.append(...data.xAccounts.map(createXCard));
   updatedAt.textContent = `最終更新: ${data.updatedAt}`;
+  applyFilter();
   loadXWidgets();
+}
+
+async function refreshTransferData() {
+  try {
+    const response = await fetch(`${TRANSFER_DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Transfer data returned ${response.status}`);
+    render(await response.json());
+  } catch (error) {
+    updatedAt.textContent = "移籍データを読み込めませんでした";
+  }
 }
 
 document.getElementById("filters").addEventListener("click", event => {
@@ -92,12 +116,5 @@ document.getElementById("filters").addEventListener("click", event => {
   applyFilter();
 });
 
-fetch(TRANSFER_DATA_URL, { cache: "no-store" })
-  .then(response => {
-    if (!response.ok) throw new Error(`Transfer data returned ${response.status}`);
-    return response.json();
-  })
-  .then(render)
-  .catch(() => {
-    updatedAt.textContent = "移籍データを読み込めませんでした";
-  });
+refreshTransferData();
+setInterval(refreshTransferData, 5 * 60 * 1000);

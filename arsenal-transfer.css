@@ -113,7 +113,7 @@ main { padding-bottom: 24px; }
 }
 .filter.is-active { border-color: var(--arsenal-red); color: white; background: var(--arsenal-red); }
 
-.transfer-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 12px; }
+.transfer-layout { display: block; }
 .section-heading { margin-bottom: 12px; }
 .section-heading h2 { margin: 0; color: var(--navy); font-size: 24px; }
 .section-heading p:not(.eyebrow) { margin: 7px 0 0; color: var(--muted); font-size: 13px; }
@@ -133,13 +133,26 @@ main { padding-bottom: 24px; }
 .article-footer .source { color: var(--muted); font-size: 11px; font-weight: 800; }
 .article-footer a { color: var(--arsenal-red); font-size: 12px; font-weight: 900; }
 
-.radar-panel { padding: 14px; align-self: start; }
-.radar-list { display: grid; gap: 8px; }
-.radar-item { border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: white; }
-.radar-item h3 { margin: 0; color: var(--navy); font-size: 15px; }
-.radar-item p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
-.radar-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-.status { color: var(--deep-red); font-size: 10px; font-weight: 900; text-transform: uppercase; }
+.radar-panel { margin-top: 12px; padding: 14px; }
+.radar-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.refresh-badge { border-radius: 999px; padding: 5px 9px; color: var(--deep-red); background: #ffe4e6; font-size: 10px; font-weight: 900; white-space: nowrap; }
+.radar-note { margin: -3px 0 10px; color: var(--muted); font-size: 11px; }
+.radar-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+.radar-table { width: 100%; border-collapse: collapse; min-width: 1040px; background: white; }
+.radar-table th,
+.radar-table td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; white-space: nowrap; }
+.radar-table th { color: var(--muted); background: #f8fafc; font-size: 10px; font-weight: 900; text-transform: uppercase; }
+.radar-table td { font-size: 12px; }
+.radar-table tbody tr:last-child td { border-bottom: 0; }
+.radar-table tbody tr[data-hidden="true"] { display: none; }
+.player-name { color: var(--navy); font-weight: 900; }
+.market-value strong { display: block; color: var(--navy); }
+.market-value small { color: var(--muted); font-size: 9px; }
+.probability { display: flex; align-items: center; gap: 7px; }
+.probability-bar { width: 54px; height: 6px; overflow: hidden; border-radius: 999px; background: #e5e7eb; }
+.probability-bar span { display: block; height: 100%; border-radius: inherit; background: var(--arsenal-red); }
+.deal-type { border-radius: 999px; padding: 4px 7px; color: var(--deep-red); background: #ffe4e6; font-size: 10px; font-weight: 900; }
+.related-link { color: var(--arsenal-red); font-weight: 900; }
 
 .x-section { margin-top: 12px; padding: 14px; }
 .x-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -163,7 +176,7 @@ main { padding-bottom: 24px; }
 .ad-placeholder { display: grid; place-items: center; min-height: 70px; border: 1px dashed rgba(255,255,255,.35); border-radius: 6px; font-size: 12px; }
 
 @media (max-width: 900px) {
-  .transfer-layout, .article-grid, .x-grid { grid-template-columns: 1fr; }
+  .article-grid, .x-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {
