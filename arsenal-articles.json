@@ -1,0 +1,17 @@
+[
+  {
+    "id": "article-welcome-001",
+    "title": "Gooner’s Dushboardが目指すもの",
+    "slug": "welcome-to-gooners-dushboard",
+    "category": "Supporters",
+    "author": "Gooner’s Dushboard Editorial",
+    "publishedAt": "2026-06-28",
+    "updatedAt": "2026-06-28",
+    "summary": "日本のグーナーが試合、移籍、観戦場所、SNSを一つの場所で追えるサイトを目指します。",
+    "body": "Gooner’s Dushboardは、日本のアーセナルファンが必要な情報へ素早く辿り着ける場所を作るために始まりました。\n\n試合日程や順位だけでなく、移籍報道の信頼度、選手のX、国内の観戦店、試合前の予想まで、グーナーの一週間を支える情報をまとめます。\n\n記事では単なる転載ではなく、参照元を明記し、日本のファンにとって何が重要かを自分たちの言葉で整理していきます。",
+    "image": "assets/gooner-dashboard-bg.png",
+    "sources": ["https://www.arsenal.com/"],
+    "featured": true,
+    "createdAt": "2026-06-28T00:00:00.000Z"
+  }
+]

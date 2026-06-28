@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Article Admin | Gooner’s Dushboard</title>
+  <link rel="stylesheet" href="arsenal-admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div>
+      <p>LOCAL CONTENT MANAGER</p>
+      <h1>Article Admin</h1>
+    </div>
+    <div class="header-actions">
+      <a href="arsenal-articles.html" target="_blank">公開記事を見る</a>
+      <button id="newArticle" type="button">新規記事</button>
+      <button id="exportArticles" type="button" class="primary">JSONを書き出す</button>
+      <label class="import-button">JSONを読み込む<input id="importArticles" type="file" accept="application/json"></label>
+    </div>
+  </header>
+
+  <div class="admin-notice">
+    この管理画面の内容はブラウザ内に保存されます。公開するにはJSONを書き出し、プロジェクトの
+    <code>arsenal-articles.json</code> と置き換えてGitHubへpushしてください。
+  </div>
+
+  <main class="admin-layout">
+    <aside class="article-sidebar">
+      <label class="search-field">
+        <span>記事検索</span>
+        <input id="articleSearch" type="search" placeholder="タイトル・カテゴリ">
+      </label>
+      <div class="article-list" id="adminArticleList"></div>
+    </aside>
+
+    <section class="editor-panel">
+      <form id="articleForm">
+        <input id="articleId" type="hidden">
+        <div class="form-grid two-columns">
+          <label>
+            <span>タイトル *</span>
+            <input id="articleTitle" required maxlength="100">
+          </label>
+          <label>
+            <span>URLスラッグ *</span>
+            <input id="articleSlug" required pattern="[a-z0-9-]+" placeholder="match-preview-example">
+          </label>
+        </div>
+
+        <div class="form-grid three-columns">
+          <label>
+            <span>カテゴリ</span>
+            <select id="articleCategory">
+              <option>Match Preview</option>
+              <option>Match Review</option>
+              <option>Transfer</option>
+              <option>Player</option>
+              <option>Supporters</option>
+              <option>Opinion</option>
+            </select>
+          </label>
+          <label>
+            <span>著者</span>
+            <input id="articleAuthor" value="Gooner’s Dushboard Editorial">
+          </label>
+          <label>
+            <span>公開日</span>
+            <input id="articlePublishedAt" type="date">
+          </label>
+        </div>
+
+        <label>
+          <span>概要 *</span>
+          <textarea id="articleSummary" required maxlength="220" rows="3"></textarea>
+        </label>
+
+        <label>
+          <span>本文 *</span>
+          <textarea id="articleBody" required rows="15" placeholder="段落ごとに空行を入れてください。"></textarea>
+        </label>
+
+        <label>
+          <span>ヒーロー画像URLまたはローカルパス</span>
+          <input id="articleImage" placeholder="assets/article/example.jpg">
+        </label>
+
+        <label>
+          <span>出典URL（1行に1件）</span>
+          <textarea id="articleSources" rows="5" placeholder="https://www.arsenal.com/...&#10;https://www.bbc.com/..."></textarea>
+        </label>
+
+        <label class="checkbox-label">
+          <input id="articleFeatured" type="checkbox">
+          <span>注目記事として表示</span>
+        </label>
+
+        <div class="form-actions">
+          <button class="primary" type="submit">記事を保存</button>
+          <button id="previewArticle" type="button">プレビュー</button>
+          <button id="deleteArticle" type="button" class="danger">削除</button>
+          <span id="adminMessage" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <dialog id="previewDialog">
+    <button id="closePreview" type="button">閉じる</button>
+    <article id="previewContent"></article>
+  </dialog>
+
+  <script src="arsenal-admin.js"></script>
+</body>
+</html>
