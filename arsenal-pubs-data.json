@@ -1,0 +1,64 @@
+[
+  { "region": "北海道", "prefecture": "北海道", "venues": [
+    { "name": "BEARFOOT", "category": "football", "categoryLabel": "Football viewing", "address": "北海道札幌市中央区南2条西6丁目5-2 狸小路プラザハウス", "feature": "大型プロジェクターを備え、各種スポーツ観戦に対応するインターナショナルなバー。", "note": "アーセナル専門店ではありません。対象試合の放映予定を事前確認してください。", "url": "https://bearfootbar.com/" },
+    { "name": "BRITISH PUB DARWIN 日本生命札幌ビル店", "category": "football", "categoryLabel": "Football viewing", "address": "北海道札幌市中央区北3条西4丁目1-1 日本生命札幌ビルB1F", "feature": "札幌駅近くの英国パブ。ビールとパブフードを楽しめる観戦候補。", "note": "アーセナル戦の放映は店舗へ確認してください。", "url": "https://nissay-sapporo.com/shop_info/british-pub-darwin/" }
+  ] },
+  { "region": "東北", "prefecture": "青森県", "venues": [] },
+  { "region": "東北", "prefecture": "岩手県", "venues": [] },
+  { "region": "東北", "prefecture": "宮城県", "venues": [] },
+  { "region": "東北", "prefecture": "秋田県", "venues": [] },
+  { "region": "東北", "prefecture": "山形県", "venues": [] },
+  { "region": "東北", "prefecture": "福島県", "venues": [] },
+  { "region": "関東", "prefecture": "茨城県", "venues": [] },
+  { "region": "関東", "prefecture": "栃木県", "venues": [] },
+  { "region": "関東", "prefecture": "群馬県", "venues": [] },
+  { "region": "関東", "prefecture": "埼玉県", "venues": [] },
+  { "region": "関東", "prefecture": "千葉県", "venues": [] },
+  { "region": "関東", "prefecture": "東京都", "venues": [
+    { "name": "HIGHBURY -THE HOME OF BEER-", "category": "arsenal", "categoryLabel": "Arsenal-focused", "address": "東京都新宿区新宿1-17-5 1F", "feature": "店名から内装までアーセナル色が強い英国ビアパブ。新宿御苑前駅から徒歩約1分。", "note": "試合開催時の営業・予約方法は公式サイトや店舗SNSで確認してください。", "url": "https://highbury-international.com/" },
+    { "name": "THE FooTNiK 恵比寿店", "category": "football", "categoryLabel": "Football viewing", "address": "東京都渋谷区恵比寿1-11-2 アサヒビル1F", "feature": "1996年創業の老舗フットボールパブ。60席で英国料理とサッカー観戦を楽しめる。", "note": "アーセナル専門店ではありません。人気試合はプロミスシート等を事前確認してください。", "url": "https://footnik.net/ebisu/" },
+    { "name": "THE FooTNiK 大崎店", "category": "football", "categoryLabel": "Football viewing", "address": "東京都品川区大崎2-1-1 ThinkPark 1F", "feature": "大崎駅近くのフットボールパブ。大型試合の観戦候補。", "note": "日曜・祝日や深夜試合は営業・放映予定を事前確認してください。", "url": "https://footnik.net/osaki/" }
+  ] },
+  { "region": "関東", "prefecture": "神奈川県", "venues": [] },
+  { "region": "中部", "prefecture": "新潟県", "venues": [] },
+  { "region": "中部", "prefecture": "富山県", "venues": [] },
+  { "region": "中部", "prefecture": "石川県", "venues": [] },
+  { "region": "中部", "prefecture": "福井県", "venues": [] },
+  { "region": "中部", "prefecture": "山梨県", "venues": [] },
+  { "region": "中部", "prefecture": "長野県", "venues": [] },
+  { "region": "中部", "prefecture": "岐阜県", "venues": [] },
+  { "region": "中部", "prefecture": "静岡県", "venues": [] },
+  { "region": "中部", "prefecture": "愛知県", "venues": [
+    { "name": "Irish Pub The Cooper's", "category": "football", "categoryLabel": "Football viewing", "address": "愛知県名古屋市中村区名駅3-24-9 まるビル2F", "feature": "複数モニターを備え、サッカーやラグビー観戦に対応する名古屋駅近くのアイリッシュパブ。", "note": "アーセナル専門店ではありません。放映カードは店舗へ確認してください。", "url": "https://coopers-nagoya.com/" }
+  ] },
+  { "region": "近畿", "prefecture": "三重県", "venues": [] },
+  { "region": "近畿", "prefecture": "滋賀県", "venues": [] },
+  { "region": "近畿", "prefecture": "京都府", "venues": [] },
+  { "region": "近畿", "prefecture": "大阪府", "venues": [
+    { "name": "スポーツ居酒屋 ALE HOUSE 加美屋", "category": "football", "categoryLabel": "Football viewing", "address": "大阪府大阪市北区堂山町2-10 K1ビルB1F", "feature": "東梅田エリアのスポーツ居酒屋。サッカー中継実績があり、食事と観戦を両立しやすい。", "note": "アーセナル戦の放映、深夜営業、予約条件は事前確認してください。", "url": "https://beer-kamiya.com/feature/watching-sports/" },
+    { "name": "THE PUBLIC PLUM UMEDA", "category": "football", "categoryLabel": "Football viewing", "address": "大阪府大阪市北区大深町5-1 うめきたグリーンプレイス3F 302区画", "feature": "大型モニターと音響設備を備えたガストロパブ兼スポーツバー。JR大阪駅直結。", "note": "アーセナル専門店ではありません。スポーツナイトの放映予定を確認してください。", "url": "https://www.bagus-99.com/publicplum/" },
+    { "name": "心斎橋 sports bar BASE", "category": "football", "categoryLabel": "Football viewing", "address": "大阪府大阪市中央区西心斎橋2-3-5 スポタカビル北館2F", "feature": "サッカー観戦を前面に出した心斎橋のスポーツバー。試合に応じて営業時間変更の案内あり。", "note": "アーセナル専門店ではありません。対象試合の放映を予約時に確認してください。", "url": "https://base.newspo.co.jp/" }
+  ] },
+  { "region": "近畿", "prefecture": "兵庫県", "venues": [] },
+  { "region": "近畿", "prefecture": "奈良県", "venues": [] },
+  { "region": "近畿", "prefecture": "和歌山県", "venues": [] },
+  { "region": "中国", "prefecture": "鳥取県", "venues": [] },
+  { "region": "中国", "prefecture": "島根県", "venues": [] },
+  { "region": "中国", "prefecture": "岡山県", "venues": [] },
+  { "region": "中国", "prefecture": "広島県", "venues": [] },
+  { "region": "中国", "prefecture": "山口県", "venues": [] },
+  { "region": "四国", "prefecture": "徳島県", "venues": [] },
+  { "region": "四国", "prefecture": "香川県", "venues": [] },
+  { "region": "四国", "prefecture": "愛媛県", "venues": [] },
+  { "region": "四国", "prefecture": "高知県", "venues": [] },
+  { "region": "九州・沖縄", "prefecture": "福岡県", "venues": [
+    { "name": "BRITISH PUB MORRIS 'RED FOX", "category": "football", "categoryLabel": "Football viewing", "address": "福岡県福岡市中央区大名2-1-4 ステージ1西通り7F", "feature": "多数のディスプレイと英国料理、テラス席を備えた天神・大名の英国パブ。", "note": "アーセナル専門店ではありません。対象試合の放映予定を確認してください。", "url": "https://premier-fukuoka.com/shop/redfox" }
+  ] },
+  { "region": "九州・沖縄", "prefecture": "佐賀県", "venues": [] },
+  { "region": "九州・沖縄", "prefecture": "長崎県", "venues": [] },
+  { "region": "九州・沖縄", "prefecture": "熊本県", "venues": [] },
+  { "region": "九州・沖縄", "prefecture": "大分県", "venues": [] },
+  { "region": "九州・沖縄", "prefecture": "宮崎県", "venues": [] },
+  { "region": "九州・沖縄", "prefecture": "鹿児島県", "venues": [] },
+  { "region": "九州・沖縄", "prefecture": "沖縄県", "venues": [] }
+]

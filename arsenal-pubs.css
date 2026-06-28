@@ -1,0 +1,83 @@
+:root {
+  --arsenal-red: #d71920;
+  --deep-red: #8a1016;
+  --navy: #111827;
+  --ink: #202733;
+  --muted: #697386;
+  --line: #e6e8ee;
+  --panel: rgba(255,255,255,.97);
+  --gold: #f4c542;
+  --green: #15803d;
+}
+
+* { box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(17,24,39,.92), rgba(138,16,22,.76)),
+    url("assets/gooner-dashboard-bg.png") center / cover fixed no-repeat;
+  font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+
+.page-hero,
+main { width: min(1280px, calc(100% - 24px)); margin: 0 auto; }
+.page-hero { color: white; }
+.topbar, .brand, .nav-links { display: flex; align-items: center; }
+.topbar { justify-content: space-between; gap: 16px; padding: 14px 0; }
+.brand { gap: 10px; font-weight: 900; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 2px solid rgba(255,255,255,.72); border-radius: 50%; background: rgba(17,24,39,.28); }
+.nav-links { flex-wrap: wrap; gap: 7px; }
+.nav-links a { border: 1px solid rgba(255,255,255,.34); border-radius: 999px; padding: 7px 10px; font-size: 12px; font-weight: 800; }
+.hero-copy { max-width: 920px; padding: 28px 0 34px; }
+.eyebrow { margin: 0 0 7px; color: var(--gold); font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.hero-copy h1 { margin: 0; font-size: clamp(40px, 6vw, 72px); line-height: 1; }
+.hero-copy p:not(.eyebrow) { max-width: 800px; margin: 14px 0 0; color: rgba(255,255,255,.88); line-height: 1.65; }
+
+main { padding-bottom: 24px; }
+.notice, .controls, .legend, .prefecture-section {
+  border: 1px solid rgba(17,24,39,.12);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 12px 26px rgba(17,24,39,.14);
+}
+.notice { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 10px; padding: 11px 13px; font-size: 13px; }
+.notice strong { color: var(--deep-red); }
+.notice span { color: var(--muted); }
+.controls { display: grid; grid-template-columns: 220px minmax(240px, 1fr) auto; align-items: end; gap: 12px; padding: 12px; }
+.controls label { display: grid; gap: 5px; color: var(--muted); font-size: 11px; font-weight: 800; }
+.controls select, .controls input { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; color: var(--ink); background: white; }
+.summary { color: var(--navy); font-size: 13px; font-weight: 900; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 10px; margin-top: 10px; padding: 10px 12px; color: var(--muted); font-size: 11px; }
+.badge { display: inline-flex; border-radius: 999px; padding: 4px 8px; color: white; font-size: 10px; font-weight: 900; text-transform: uppercase; }
+.badge.arsenal { background: var(--arsenal-red); }
+.badge.football { background: var(--navy); }
+
+.prefecture-list { display: grid; gap: 10px; margin-top: 10px; }
+.prefecture-section { padding: 13px; }
+.prefecture-section[data-hidden="true"] { display: none; }
+.prefecture-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.prefecture-heading h2 { margin: 0; color: var(--navy); font-size: 21px; }
+.prefecture-heading span { color: var(--muted); font-size: 11px; }
+.venue-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.venue-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: white; }
+.venue-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.venue-card h3 { margin: 0; color: var(--navy); font-size: 17px; }
+.venue-feature { margin: 9px 0 0; color: var(--ink); font-size: 13px; line-height: 1.55; }
+.venue-address { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+.venue-note { margin: 8px 0 0; border-left: 3px solid var(--gold); padding-left: 8px; color: var(--muted); font-size: 11px; }
+.venue-links { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 11px; }
+.venue-links a { border-radius: 999px; padding: 6px 9px; color: white; background: var(--arsenal-red); font-size: 11px; font-weight: 900; }
+.venue-links a.map { background: var(--navy); }
+.empty-prefecture { border: 1px dashed var(--line); border-radius: 8px; padding: 14px; color: var(--muted); background: #fafafa; font-size: 12px; text-align: center; }
+.ad-slot { width: min(980px, calc(100% - 24px)); margin: 0 auto 18px; border: 1px solid rgba(255,255,255,.28); border-radius: 8px; padding: 8px; color: rgba(255,255,255,.85); background: rgba(17,24,39,.64); text-align: center; }
+.ad-slot span { display: block; margin-bottom: 5px; font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+.ad-placeholder { display: grid; place-items: center; min-height: 70px; border: 1px dashed rgba(255,255,255,.35); border-radius: 6px; font-size: 12px; }
+
+@media (max-width: 760px) {
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .controls, .venue-grid { grid-template-columns: 1fr; }
+}

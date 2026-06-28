@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japan Gooner Pubs | Gooner’s Dushboard</title>
+  <meta name="description" content="日本国内でアーセナル観戦を楽しめるパブ、居酒屋、スポーツバーを都道府県別に探せるファンメイドリスト。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Japan Gooner Pubs">
+  <meta property="og:description" content="都道府県別に探す、日本国内のアーセナル観戦店・サッカーパブ一覧。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gooner-dashboard-bg.png">
+  <link rel="stylesheet" href="arsenal-pubs.css">
+</head>
+<body>
+  <header class="page-hero">
+    <nav class="topbar" aria-label="ページナビゲーション">
+      <a class="brand" href="arsenal.html">
+        <span class="brand-mark">A</span>
+        <span>Gooner’s Dushboard</span>
+      </a>
+      <div class="nav-links">
+        <a href="arsenal.html">Dashboard</a>
+        <a href="arsenal-transfer.html">Transfers</a>
+        <a href="arsenal-x.html">Players X</a>
+      </div>
+    </nav>
+
+    <section class="hero-copy">
+      <p class="eyebrow">Japan Matchday Guide</p>
+      <h1>Japan Gooner Pubs</h1>
+      <p>
+        日本全国のグーナーが、同じ赤い情熱を共有できる場所を探すための観戦店ガイド。
+        アーセナル色の強いパブと、試合放映を相談できるサッカー観戦店を区別して掲載します。
+      </p>
+    </section>
+  </header>
+
+  <main>
+    <section class="notice">
+      <strong>来店前に必ず店舗へ確認してください。</strong>
+      <span>放映カード、深夜営業、予約方法、チャージ、貸切状況は試合ごとに変わります。</span>
+    </section>
+
+    <section class="controls" aria-label="店舗検索">
+      <label>
+        <span>都道府県</span>
+        <select id="prefectureFilter"></select>
+      </label>
+      <label>
+        <span>キーワード</span>
+        <input id="pubSearch" type="search" placeholder="店名・住所・特徴で検索">
+      </label>
+      <div class="summary" id="venueSummary"></div>
+    </section>
+
+    <section class="legend" aria-label="掲載区分">
+      <span class="badge arsenal">Arsenal-focused</span>
+      <span>アーセナル色が明確な店舗</span>
+      <span class="badge football">Football viewing</span>
+      <span>サッカー観戦対応。アーセナル戦は要確認</span>
+    </section>
+
+    <section class="prefecture-list" id="prefectureList" aria-live="polite"></section>
+  </main>
+
+  <aside class="ad-slot" data-ad-slot="pubs-bottom">
+    <span>Advertisement</span>
+    <div class="ad-placeholder">Ad space reserved for future sponsor or AdSense placement.</div>
+  </aside>
+
+  <script src="ads-config.js"></script>
+  <script src="ads.js"></script>
+  <script src="arsenal-pubs.js"></script>
+</body>
+</html>
