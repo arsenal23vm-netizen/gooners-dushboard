@@ -1,0 +1,82 @@
+{
+  "updatedAt": "2026-06-28",
+  "articles": [
+    {
+      "tier": "official",
+      "tierLabel": "Official",
+      "date": "随時更新",
+      "title": "Arsenal公式の移籍・契約発表",
+      "summary": "加入、退団、ローン、契約更新は、噂ではなくクラブ公式発表を最優先で確認します。",
+      "source": "Arsenal.com",
+      "url": "https://www.arsenal.com/news"
+    },
+    {
+      "tier": "high",
+      "tierLabel": "High reliability",
+      "date": "2026-04-09",
+      "title": "Arteta契約と夏の補強計画を読み解く",
+      "summary": "BBC Sportによる、監督契約と夏のスカッド構築をめぐる背景分析。",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cn78kdymmvpo"
+    },
+    {
+      "tier": "high",
+      "tierLabel": "High reliability",
+      "date": "随時更新",
+      "title": "Arsenalの最新移籍ニュース",
+      "summary": "主要報道、交渉状況、選手の出入りをまとめて確認するための定点観測ページ。",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/arsenal"
+    },
+    {
+      "tier": "watch",
+      "tierLabel": "Watch",
+      "date": "2026-06-22",
+      "title": "若手ウインガーへの関心が報道",
+      "summary": "Jeremy Mongaへの関心が報じられています。公式発表ではないため、交渉段階と情報源を分けて追跡します。",
+      "source": "FourFourTwo",
+      "url": "https://www.fourfourtwo.com/team/arsenal-pip-manchester-united-and-chelsea-to-land-efl-wonderkid-report"
+    }
+  ],
+  "radar": [
+    {
+      "player": "Morgan Rogers",
+      "position": "Attacking midfielder / Winger",
+      "status": "Reported interest",
+      "tier": "watch",
+      "note": "複数報道あり。公式確認なし"
+    },
+    {
+      "player": "Jeremy Monga",
+      "position": "Winger",
+      "status": "Youth target",
+      "tier": "watch",
+      "note": "若手補強候補として報道"
+    },
+    {
+      "player": "Official arrivals",
+      "position": "All positions",
+      "status": "Confirmed only",
+      "tier": "official",
+      "note": "Arsenal.com発表後に更新"
+    }
+  ],
+  "xAccounts": [
+    {
+      "name": "Arsenal",
+      "handle": "Arsenal"
+    },
+    {
+      "name": "David Ornstein",
+      "handle": "David_Ornstein"
+    },
+    {
+      "name": "Fabrizio Romano",
+      "handle": "FabrizioRomano"
+    },
+    {
+      "name": "gunnerblog",
+      "handle": "gunnerblog"
+    }
+  ]
+}

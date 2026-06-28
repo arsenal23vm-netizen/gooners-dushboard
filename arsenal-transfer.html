@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsenal Transfer Hub | Gooner’s Dushboard</title>
+  <meta name="description" content="Arsenal transfer news hub collecting official announcements, reliable reports, rumours, and transfer-related X posts.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Arsenal Transfer Hub">
+  <meta property="og:description" content="Official Arsenal transfers, reliable reports, rumours, and X timelines in one place.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gooner-dashboard-bg.png">
+  <link rel="stylesheet" href="arsenal-transfer.css">
+</head>
+<body>
+  <header class="page-hero">
+    <nav class="topbar" aria-label="ページナビゲーション">
+      <a class="brand" href="arsenal.html">
+        <span class="brand-mark">A</span>
+        <span>Gooner’s Dushboard</span>
+      </a>
+      <div class="nav-links">
+        <a href="arsenal.html">Dashboard</a>
+        <a href="arsenal-x.html">Players X</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </nav>
+
+    <section class="hero-copy">
+      <p class="eyebrow">Summer Window 2026</p>
+      <h1>Arsenal Transfer Hub</h1>
+      <p>
+        公式発表、信頼度の高い報道、噂、Xの速報を一か所に集約。
+        「確定」と「報道」と「願望」を混ぜずに追える移籍情報ページです。
+      </p>
+    </section>
+  </header>
+
+  <main>
+    <section class="toolbar" aria-label="移籍情報フィルター">
+      <div class="filters" id="filters">
+        <button class="filter is-active" data-filter="all">すべて</button>
+        <button class="filter" data-filter="official">公式</button>
+        <button class="filter" data-filter="high">信頼度高</button>
+        <button class="filter" data-filter="watch">噂・監視</button>
+      </div>
+      <p id="updatedAt">更新日を確認中</p>
+    </section>
+
+    <section class="transfer-layout">
+      <div>
+        <div class="section-heading">
+          <p class="eyebrow">News Board</p>
+          <h2>記事・移籍トピック</h2>
+        </div>
+        <div class="article-grid" id="articleGrid"></div>
+      </div>
+
+      <aside class="radar-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Transfer Radar</p>
+          <h2>名前が挙がった選手</h2>
+        </div>
+        <div class="radar-list" id="radarList"></div>
+      </aside>
+    </section>
+
+    <section class="x-section">
+      <div class="section-heading">
+        <p class="eyebrow">Live on X</p>
+        <h2>移籍情報アカウント</h2>
+        <p>Xの表示は、ブラウザの広告ブロックやトラッキング防止設定に影響されることがあります。</p>
+      </div>
+      <div class="x-grid" id="xGrid"></div>
+    </section>
+  </main>
+
+  <aside class="ad-slot" data-ad-slot="transfer-bottom">
+    <span>Advertisement</span>
+    <div class="ad-placeholder">Ad space reserved for future sponsor or AdSense placement.</div>
+  </aside>
+
+  <template id="articleTemplate">
+    <article class="article-card">
+      <div class="article-meta">
+        <span class="tier"></span>
+        <time></time>
+      </div>
+      <h3></h3>
+      <p></p>
+      <div class="article-footer">
+        <span class="source"></span>
+        <a target="_blank" rel="noopener noreferrer">記事を読む</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="ads-config.js"></script>
+  <script src="ads.js"></script>
+  <script src="arsenal-transfer.js"></script>
+</body>
+</html>

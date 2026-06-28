@@ -4,6 +4,7 @@ window.GOONER_ADS = {
   adsenseClient: "ca-pub-XXXXXXXXXXXXXXXX",
   slots: {
     "dashboard-bottom": "0000000000",
-    "timeline-bottom": "0000000000"
+    "timeline-bottom": "0000000000",
+    "transfer-bottom": "0000000000"
   }
 };
