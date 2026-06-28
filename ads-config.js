@@ -6,6 +6,7 @@ window.GOONER_ADS = {
     "dashboard-bottom": "0000000000",
     "timeline-bottom": "0000000000",
     "transfer-bottom": "0000000000",
-    "pubs-bottom": "0000000000"
+    "pubs-bottom": "0000000000",
+    "matchday-bottom": "0000000000"
   }
 };

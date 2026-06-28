@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsenal Matchday Center | Gooner’s Dushboard</title>
+  <meta name="description" content="アーセナルの次戦情報、スコア予想、予想スタメン、SNS共有を一つにまとめたMatchday Center。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Arsenal Matchday Center">
+  <meta property="og:description" content="次戦情報、予想スコア、予想スタメンをまとめて共有。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gooner-dashboard-bg.png">
+  <link rel="stylesheet" href="arsenal-matchday.css">
+</head>
+<body>
+  <header class="page-hero">
+    <nav class="topbar" aria-label="ページナビゲーション">
+      <a class="brand" href="arsenal.html">
+        <span class="brand-mark">A</span>
+        <span>Gooner’s Dushboard</span>
+      </a>
+      <div class="nav-links">
+        <a href="arsenal.html">Dashboard</a>
+        <a href="arsenal-transfer.html">Transfers</a>
+        <a href="arsenal-pubs.html">Japan Pubs</a>
+      </div>
+    </nav>
+
+    <section class="hero-copy">
+      <p class="eyebrow">Next Match Intelligence</p>
+      <h1>Matchday Center</h1>
+      <p>次戦を知る、予想する、共有する。グーナーの試合前ルーティンを一つの画面に。</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="match-hero panel" aria-label="次戦情報">
+      <div class="competition" id="competition">Competition</div>
+      <div class="matchup">
+        <div class="team arsenal-team">
+          <span class="team-badge">ARS</span>
+          <strong>Arsenal</strong>
+        </div>
+        <div class="match-center-copy">
+          <time id="matchDate">TBD</time>
+          <span id="matchVenue">Venue TBD</span>
+          <div class="countdown" id="countdown">日程確認中</div>
+        </div>
+        <div class="team">
+          <span class="team-badge opponent" id="opponentBadge">TBD</span>
+          <strong id="opponentName">Opponent</strong>
+        </div>
+      </div>
+      <div class="opponent-form">
+        <span>相手の直近5戦</span>
+        <div class="form-dots" id="opponentForm"></div>
+      </div>
+    </section>
+
+    <section class="matchday-grid">
+      <article class="panel prediction-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Score Predictor</p>
+          <h2>スコア予想</h2>
+        </div>
+        <div class="score-inputs">
+          <label>
+            <span>Arsenal</span>
+            <input id="arsenalScore" type="number" min="0" max="15" value="2">
+          </label>
+          <span class="score-separator">-</span>
+          <label>
+            <span id="opponentScoreLabel">Opponent</span>
+            <input id="opponentScore" type="number" min="0" max="15" value="1">
+          </label>
+        </div>
+        <label class="comment-field">
+          <span>予想コメント</span>
+          <textarea id="predictionComment" maxlength="120" placeholder="勝敗のポイントを120文字以内で"></textarea>
+        </label>
+        <button class="primary-button" id="savePrediction">予想を保存</button>
+        <p class="save-message" id="saveMessage" aria-live="polite"></p>
+      </article>
+
+      <article class="panel lineup-panel">
+        <div class="section-heading lineup-heading">
+          <div>
+            <p class="eyebrow">Your Starting XI</p>
+            <h2>予想スタメン</h2>
+          </div>
+          <span id="selectionCount">0 / 11</span>
+        </div>
+        <div class="position-filters" id="positionFilters">
+          <button class="is-active" data-position="all">全員</button>
+          <button data-position="Goalkeeper">GK</button>
+          <button data-position="Defender">DF</button>
+          <button data-position="Midfielder">MF</button>
+          <button data-position="Forward">FW</button>
+        </div>
+        <div class="player-picker" id="playerPicker"></div>
+      </article>
+
+      <article class="panel share-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Share Matchday</p>
+          <h2>予想を共有</h2>
+        </div>
+        <canvas id="shareCanvas" width="1200" height="630" aria-label="共有画像プレビュー"></canvas>
+        <div class="share-actions">
+          <button class="primary-button" id="shareButton">共有</button>
+          <a class="secondary-button" id="xShareButton" target="_blank" rel="noopener noreferrer">Xに投稿</a>
+          <button class="secondary-button" id="downloadCard">画像を保存</button>
+          <button class="secondary-button" id="copyLink">URLをコピー</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <aside class="ad-slot" data-ad-slot="matchday-bottom">
+    <span>Advertisement</span>
+    <div class="ad-placeholder">Ad space reserved for future sponsor or AdSense placement.</div>
+  </aside>
+
+  <script src="ads-config.js"></script>
+  <script src="ads.js"></script>
+  <script src="arsenal-matchday.js"></script>
+</body>
+</html>
