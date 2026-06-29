@@ -60,7 +60,7 @@ async function loadTrivia() {
       throw new Error(`HTTP ${response.status}`);
     }
 
-    triviaItems = await response.json();
+    triviaItems = (await response.json()).sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0));
     totalCount.textContent = triviaItems.length;
     renderCategories(triviaItems);
     renderTable();
