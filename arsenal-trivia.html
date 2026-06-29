@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsenal Trivia | Gooner's Dushboard</title>
+  <meta name="description" content="アーセナルの歴史、選手、監督、スタジアム、欧州大会、女子チームまで幅広く整理したトリビア一覧。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Arsenal Trivia">
+  <meta property="og:description" content="アーセナルのクラブ史を表形式で一気に把握できる日本語トリビアページ。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gooner-dashboard-bg.png">
+  <link rel="stylesheet" href="arsenal-trivia.css">
+</head>
+<body>
+  <header class="page-hero">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="arsenal.html"><span class="brand-mark">A</span><span>Gooner's Dushboard</span></a>
+      <div class="nav-links">
+        <a href="arsenal.html">Dashboard</a>
+        <a href="arsenal-matchday.html">Matchday</a>
+        <a href="arsenal-transfer.html">Transfers</a>
+        <a href="arsenal-articles.html">Articles</a>
+        <a href="arsenal-pubs.html">Japan Pubs</a>
+        <a href="arsenal-x.html">Players X</a>
+      </div>
+    </nav>
+    <section class="hero-copy">
+      <p class="eyebrow">Arsenal Knowledge Base</p>
+      <h1>Arsenal Trivia</h1>
+      <p>選手、監督、スタジアム、欧州大会、女子チームまで、アーセナルを語るための小ネタと基礎知識を年代順に整理しました。</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="summary-strip" aria-label="Trivia summary">
+      <article>
+        <strong id="totalCount">--</strong>
+        <span>収録トリビア</span>
+      </article>
+      <article>
+        <strong id="categoryCount">--</strong>
+        <span>カテゴリ</span>
+      </article>
+      <article>
+        <strong>1886</strong>
+        <span>クラブの起源</span>
+      </article>
+    </section>
+
+    <section class="controls" aria-label="Trivia filters">
+      <label>
+        <span>カテゴリ</span>
+        <select id="categoryFilter">
+          <option value="all">すべて</option>
+        </select>
+      </label>
+      <label class="search-box">
+        <span>検索</span>
+        <input id="triviaSearch" type="search" placeholder="例: Wenger, Highbury, Invincibles">
+      </label>
+    </section>
+
+    <section class="table-card" aria-label="Arsenal trivia table">
+      <div class="table-header">
+        <div>
+          <p class="eyebrow">Chronological Table</p>
+          <h2>アーセナル・トリビア一覧</h2>
+        </div>
+        <span id="visibleCount" class="count-chip">--件</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>年代</th>
+              <th>分類</th>
+              <th>テーマ</th>
+              <th>トリビア</th>
+              <th>なぜ面白いか</th>
+              <th>出典</th>
+            </tr>
+          </thead>
+          <tbody id="triviaTable"></tbody>
+        </table>
+      </div>
+      <p id="emptyState" class="empty-state" hidden>条件に合うトリビアが見つかりませんでした。</p>
+    </section>
+
+    <section class="ad-slot" data-ad-slot="trivia-bottom" aria-label="Advertisement"></section>
+  </main>
+
+  <script src="ads-config.js"></script>
+  <script src="ads.js"></script>
+  <script src="arsenal-trivia.js"></script>
+</body>
+</html>
