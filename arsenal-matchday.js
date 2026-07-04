@@ -1,6 +1,7 @@
 const DATA_URL = "arsenal-data.json";
 const PLAYERS_URL = "arsenal-x-players.json";
 const STORAGE_KEY = "gooners-matchday-prediction";
+const RATINGS_STORAGE_KEY = "gooners-matchday-ratings";
 let fixture = null;
 let players = [];
 let selectedPlayers = new Set();
@@ -23,6 +24,10 @@ const elements = {
   canvas: document.getElementById("shareCanvas"),
   xShareButton: document.getElementById("xShareButton")
 };
+
+function fixtureKey() {
+  return `${fixture?.date || "tbd"}-${fixture?.opponent || "opponent"}`;
+}
 
 function initials(name) {
   return name.split(" ").filter(Boolean).slice(0, 3).map(part => part[0]).join("").toUpperCase();
@@ -56,7 +61,19 @@ function renderFixture() {
   elements.opponentBadge.textContent = initials(fixture.opponent || "TBD");
   elements.opponentScoreLabel.textContent = fixture.opponent;
   elements.opponentForm.innerHTML = fixture.opponentForm.map(result => `<span class="form-dot ${result}" title="${result}"></span>`).join("");
+  document.getElementById("liveArsenalScore").textContent = fixture.arsenalScore ?? "-";
+  document.getElementById("liveOpponentScore").textContent = fixture.opponentScore ?? "-";
+  document.getElementById("liveOpponentCode").textContent = initials(fixture.opponent || "TBD");
+  document.getElementById("matchStatus").textContent = fixture.status || "NEXT";
+  renderEvents();
   updateCountdown();
+}
+
+function renderEvents() {
+  const events = fixture.events || [];
+  document.getElementById("eventList").innerHTML = events.length ? events.map(event => `
+    <li><time>${event.minute}'</time><span class="event-icon">${event.type === "goal" ? "GOAL" : event.type === "card" ? "CARD" : "SUB"}</span><strong>${event.player}</strong><span>${event.detail || ""}</span></li>
+  `).join("") : '<li class="empty-event">イベント情報はまだありません</li>';
 }
 
 function normalizedPosition(position) {
@@ -92,6 +109,48 @@ function renderPlayers() {
     });
   });
   updateSelectionCount();
+  renderRatingPlayers(squad);
+}
+
+function renderRatingPlayers(squad) {
+  const saved = loadRatings();
+  document.getElementById("ratingList").innerHTML = squad.map(player => {
+    const score = saved?.ratings?.[player.name] || 6;
+    return `<div class="rating-row">
+      <div class="rating-player"><span class="player-initials">${initials(player.name)}</span><span><strong>${player.name}</strong><small>${normalizedPosition(player.position)}</small></span></div>
+      <label class="score-control"><span class="sr-only">${player.name}の採点</span><input type="range" data-player="${player.name}" min="1" max="10" step="0.5" value="${score}"><output>${score}</output></label>
+      <label class="mom-control"><input type="radio" name="mom" value="${player.name}" ${saved?.mom === player.name ? "checked" : ""}><span>MOM</span></label>
+    </div>`;
+  }).join("");
+  document.querySelectorAll(".score-control input").forEach(input => input.addEventListener("input", () => { input.nextElementSibling.value = input.value; }));
+  if (saved) showRatingResults(saved);
+}
+
+function loadRatings() {
+  try { return (JSON.parse(localStorage.getItem(RATINGS_STORAGE_KEY)) || {})[fixtureKey()] || null; }
+  catch (error) { return null; }
+}
+
+function saveRatings(event) {
+  event.preventDefault();
+  const mom = new FormData(event.currentTarget).get("mom");
+  if (!mom) { document.getElementById("ratingMessage").textContent = "MOMを1人選んでください。"; return; }
+  const ratings = {};
+  document.querySelectorAll(".score-control input").forEach(input => { ratings[input.dataset.player] = Number(input.value); });
+  let allRatings = {};
+  try { allRatings = JSON.parse(localStorage.getItem(RATINGS_STORAGE_KEY)) || {}; } catch (error) { allRatings = {}; }
+  const ballot = { ratings, mom, votedAt: new Date().toISOString() };
+  allRatings[fixtureKey()] = ballot;
+  localStorage.setItem(RATINGS_STORAGE_KEY, JSON.stringify(allRatings));
+  document.getElementById("ratingMessage").textContent = "採点とMOMをこの端末に保存しました。";
+  showRatingResults(ballot);
+}
+
+function showRatingResults(ballot) {
+  const topRated = Object.entries(ballot.ratings).sort((a, b) => b[1] - a[1])[0];
+  document.getElementById("momResult").textContent = ballot.mom;
+  document.getElementById("topRatedResult").textContent = topRated ? `${topRated[0]} ${topRated[1].toFixed(1)}` : "-";
+  document.getElementById("ratingResults").hidden = false;
 }
 
 function updateSelectionCount() {
@@ -213,6 +272,12 @@ document.getElementById("downloadCard").addEventListener("click", downloadCard);
 document.getElementById("copyLink").addEventListener("click", async () => {
   await navigator.clipboard.writeText(location.href);
   elements.saveMessage.textContent = "URLをコピーしました。";
+});
+document.getElementById("ratingsForm").addEventListener("submit", saveRatings);
+document.getElementById("resetRatings").addEventListener("click", () => {
+  document.querySelectorAll(".score-control input").forEach(input => { input.value = 6; input.nextElementSibling.value = 6; });
+  document.querySelectorAll('input[name="mom"]').forEach(input => { input.checked = false; });
+  document.getElementById("ratingMessage").textContent = "入力をリセットしました。";
 });
 [elements.arsenalScore, elements.opponentScore, elements.predictionComment].forEach(input => input.addEventListener("input", drawShareCard));
 document.getElementById("positionFilters").addEventListener("click", event => {

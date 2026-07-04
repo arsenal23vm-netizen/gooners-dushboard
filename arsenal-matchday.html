@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arsenal Matchday Center | Gooner’s Dushboard</title>
-  <meta name="description" content="アーセナルの次戦情報、スコア予想、予想スタメン、SNS共有を一つにまとめたMatchday Center。">
+  <meta name="description" content="アーセナルの試合情報、イベント速報、スコア予想、選手採点、MOM投票を一つにまとめたMatchday Center。">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Arsenal Matchday Center">
   <meta property="og:description" content="次戦情報、予想スコア、予想スタメンをまとめて共有。">
@@ -31,7 +31,7 @@
     <section class="hero-copy">
       <p class="eyebrow">Next Match Intelligence</p>
       <h1>Matchday Center</h1>
-      <p>次戦を知る、予想する、共有する。グーナーの試合前ルーティンを一つの画面に。</p>
+      <p>試合前の予想から試合後の選手採点まで。グーナーの90分を一つの画面に。</p>
     </section>
   </header>
 
@@ -57,6 +57,46 @@
         <span>相手の直近5戦</span>
         <div class="form-dots" id="opponentForm"></div>
       </div>
+    </section>
+
+    <section class="center-grid" aria-label="試合センター">
+      <article class="panel live-panel">
+        <div class="section-heading live-heading">
+          <div><p class="eyebrow">Match Status</p><h2>試合センター</h2></div>
+          <span class="status-badge" id="matchStatus">NEXT</span>
+        </div>
+        <div class="live-score" aria-label="スコア">
+          <strong>ARS</strong><span id="liveArsenalScore">-</span><small>vs</small><span id="liveOpponentScore">-</span><strong id="liveOpponentCode">TBD</strong>
+        </div>
+        <p class="match-note">試合開始前です。イベントは試合データ更新後に表示されます。</p>
+      </article>
+      <article class="panel events-panel">
+        <div class="section-heading"><p class="eyebrow">Match Timeline</p><h2>主なイベント</h2></div>
+        <ol class="event-list" id="eventList"></ol>
+      </article>
+    </section>
+
+    <section class="panel ratings-panel" aria-labelledby="ratingsTitle">
+      <div class="ratings-header">
+        <div class="section-heading">
+          <p class="eyebrow">Fan Player Ratings</p><h2 id="ratingsTitle">選手採点・MOM投票</h2>
+          <p class="section-note">各選手を1〜10点で評価し、MOMを1人選んでください。</p>
+        </div>
+        <div class="rating-legend"><span>1 厳しい</span><span>6 標準</span><span>10 圧巻</span></div>
+      </div>
+      <form id="ratingsForm">
+        <div class="rating-list" id="ratingList"></div>
+        <div class="vote-actions">
+          <button class="primary-button" type="submit">採点とMOMを投票</button>
+          <button class="secondary-button" id="resetRatings" type="button">入力をリセット</button>
+          <p class="save-message" id="ratingMessage" aria-live="polite"></p>
+        </div>
+      </form>
+      <section class="rating-results" id="ratingResults" hidden>
+        <div><span class="result-label">YOUR MOM</span><strong id="momResult">-</strong></div>
+        <div><span class="result-label">TOP RATED</span><strong id="topRatedResult">-</strong></div>
+        <p>現在は、この端末に保存されたあなたの投票結果です。</p>
+      </section>
     </section>
 
     <section class="matchday-grid">
