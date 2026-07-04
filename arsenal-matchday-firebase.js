@@ -1,6 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+import { getApp, getApps, initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signInAnonymously } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-import { collection, doc, getFirestore, onSnapshot, serverTimestamp, setDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { collection, doc, getDoc, getFirestore, onSnapshot, serverTimestamp, setDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 function configured(config) {
   return Boolean(config?.apiKey && config?.authDomain && config?.projectId && config?.appId);
@@ -39,7 +39,7 @@ export async function connectFanVoting({ fixtureId, playerNames, onResults, onSt
   }
 
   try {
-    const app = initializeApp(config);
+    const app = getApps().length ? getApp() : initializeApp(config);
     const auth = getAuth(app);
     const db = getFirestore(app);
     if (!auth.currentUser) await signInAnonymously(auth);
@@ -53,6 +53,16 @@ export async function connectFanVoting({ fixtureId, playerNames, onResults, onSt
         const allowedRatings = Object.fromEntries(Object.entries(ratings).filter(([name, score]) => playerNames.includes(name) && score >= 1 && score <= 10));
         await setDoc(doc(votes, user.uid), {
           ratings: allowedRatings,
+          mom,
+          fixtureId,
+          updatedAt: serverTimestamp()
+        });
+      },
+      async submitMvp(mom) {
+        const voteRef = doc(votes, user.uid);
+        const existing = await getDoc(voteRef);
+        await setDoc(voteRef, {
+          ratings: existing.data()?.ratings || {},
           mom,
           fixtureId,
           updatedAt: serverTimestamp()

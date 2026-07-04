@@ -9,8 +9,13 @@
   "opponent": "Girona",
   "arsenalScore": 2,
   "opponentScore": 1,
-  "status": "FT"
+  "status": "FT",
+  "endedAt": "2026-08-01T20:00:00Z",
+  "mvpPublishAt": "2026-08-02T20:00:00Z",
+  "participants": ["David Raya", "William Saliba", "Bukayo Saka"]
 }
 ```
 
 ポイントは完全的中5点、勝敗的中3点、両チームそれぞれの得点的中1点です。完全的中時は最大7点になります。
+
+`endedAt` は試合終了日時、`mvpPublishAt` はMVP公開日時です。MVP投票はこの2つの時刻の間だけ受け付けます。`participants` にはベンチ入りだけの選手を含めず、実際に出場した選手だけを英字 `name` で登録します。

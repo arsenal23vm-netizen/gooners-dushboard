@@ -10,6 +10,7 @@ window.GOONER_ADS = {
     "matchday-bottom": "0000000000",
     "stats-bottom": "0000000000",
     "predictions-bottom": "0000000000",
+    "mvp-bottom": "0000000000",
     "trivia-bottom": "0000000000"
   }
 };
