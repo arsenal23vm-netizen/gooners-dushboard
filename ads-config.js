@@ -8,6 +8,7 @@ window.GOONER_ADS = {
     "transfer-bottom": "0000000000",
     "pubs-bottom": "0000000000",
     "matchday-bottom": "0000000000",
+    "stats-bottom": "0000000000",
     "trivia-bottom": "0000000000"
   }
 };
