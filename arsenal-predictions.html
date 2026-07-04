@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>みんなの予想・的中ランキング | Gooner’s Dushboard</title>
+  <meta name="description" content="アーセナル戦のスコア予想タイムライン、自分の的中結果、シーズンポイントランキングを確認できます。">
+  <meta name="robots" content="index, follow"><meta property="og:image" content="assets/gooner-dashboard-bg.png">
+  <link rel="stylesheet" href="arsenal-predictions.css"><link rel="stylesheet" href="arsenal-theme.css">
+</head>
+<body>
+  <header class="page-hero">
+    <nav class="topbar"><a class="brand" href="arsenal.html"><span class="brand-mark">A</span><span>Gooner’s Dushboard</span></a><div class="nav-links"><a href="arsenal.html">ホーム / Home</a><a href="arsenal-matchday.html">試合 / Matchday</a><a href="arsenal-predictions.html">予想 / Predictions</a><a href="arsenal-stats.html">スタッツ / Stats</a><a href="arsenal-transfer.html">移籍 / Transfers</a><a href="arsenal-articles.html">記事 / Articles</a><a href="arsenal-trivia.html">トリビア / Trivia</a><a href="arsenal-pubs.html">観戦店 / Japan Pubs</a><a href="arsenal-x.html">選手X / Players X</a></div></nav>
+    <section class="hero-copy"><p class="eyebrow">Gooner Prediction League</p><h1>みんなの予想 / Predictions</h1><p>試合前の読みを記録し、結果を振り返り、シーズンを通した的中力を競う。</p></section>
+  </header>
+  <main>
+    <section class="score-rules"><strong>POINT RULES</strong><span>完全的中 5pt</span><span>勝敗的中 3pt</span><span>Arsenal得点的中 1pt</span><span>相手得点的中 1pt</span><span>最大 7pt / 試合</span></section>
+    <section class="summary-grid"><article><span>あなた / You</span><strong id="myNickname">未登録</strong></article><article><span>累計 / Points</span><strong id="myPoints">0 pt</strong></article><article><span>完全的中 / Exact</span><strong id="myExactHits">0</strong></article><article><span>参加者 / Players</span><strong id="participantCount">0</strong></article><article><span>予想数 / Predictions</span><strong id="predictionCount">0</strong></article></section>
+    <section class="prediction-layout">
+      <div class="main-feed">
+        <div class="section-head"><div><p class="eyebrow">Live Community Feed</p><h2>予想タイムライン</h2></div><a href="arsenal-matchday.html">次戦を予想する →</a></div>
+        <div class="fixture-filter" id="fixtureFilters"></div>
+        <div class="timeline" id="predictionTimeline"><p class="empty-state">予想を読み込んでいます。</p></div>
+      </div>
+      <aside class="leaderboard-panel"><div class="section-head"><div><p class="eyebrow">Season 2026/27</p><h2>的中ランキング</h2></div></div><ol id="leaderboard"></ol><p class="connection-status" id="connectionStatus">共有データを確認中...</p></aside>
+    </section>
+    <section class="my-results-panel"><div class="section-head"><div><p class="eyebrow">Prediction Review</p><h2>自分の予想結果</h2></div></div><div class="result-grid" id="myResults"><p class="empty-state">まだ予想履歴がありません。</p></div></section>
+  </main>
+  <aside class="ad-slot" data-ad-slot="predictions-bottom"><span>Advertisement</span><div class="ad-placeholder">Ad space reserved.</div></aside>
+  <script src="ads-config.js"></script><script src="ads.js"></script><script src="firebase-config.js"></script><script src="arsenal-predictions.js"></script>
+</body></html>

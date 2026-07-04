@@ -2,10 +2,13 @@ const DATA_URL = "arsenal-data.json";
 const PLAYERS_URL = "arsenal-x-players.json";
 const STORAGE_KEY = "gooners-matchday-prediction";
 const RATINGS_STORAGE_KEY = "gooners-matchday-ratings";
+const PROFILE_STORAGE_KEY = "gooners-user-profile";
+const PREDICTION_HISTORY_KEY = "gooners-prediction-history";
 let fixture = null;
 let players = [];
 let selectedPlayers = new Set();
 let sharedVoting = null;
+let sharedPredictions = null;
 
 const elements = {
   competition: document.getElementById("competition"),
@@ -15,6 +18,7 @@ const elements = {
   opponentName: document.getElementById("opponentName"),
   opponentBadge: document.getElementById("opponentBadge"),
   opponentForm: document.getElementById("opponentForm"),
+  nickname: document.getElementById("predictionNickname"),
   arsenalScore: document.getElementById("arsenalScore"),
   opponentScore: document.getElementById("opponentScore"),
   opponentScoreLabel: document.getElementById("opponentScoreLabel"),
@@ -28,6 +32,10 @@ const elements = {
 
 function fixtureKey() {
   return `${fixture?.date || "tbd"}-${fixture?.opponent || "opponent"}`;
+}
+
+function predictionStorageKey() {
+  return `${STORAGE_KEY}-${fixtureKey().replace(/[^a-zA-Z0-9-]/g, "-").toLowerCase()}`;
 }
 
 function initials(name) {
@@ -71,7 +79,15 @@ function renderFixture() {
   document.getElementById("liveOpponentCode").textContent = initials(fixture.opponent || "TBD");
   document.getElementById("matchStatus").textContent = fixture.status || "NEXT";
   renderEvents();
+  updatePredictionAvailability();
   updateCountdown();
+}
+
+function updatePredictionAvailability() {
+  const kickoff = fixture.kickoffUtc ? new Date(fixture.kickoffUtc).getTime() : Infinity;
+  const closed = Date.now() >= kickoff || fixture.status === "FT";
+  document.getElementById("savePrediction").disabled = closed;
+  if (closed) elements.saveMessage.textContent = "この試合の予想受付は終了しました。";
 }
 
 function renderEvents() {
@@ -170,6 +186,15 @@ async function connectSharedVoting(squad) {
   }
 }
 
+async function connectSharedPredictions() {
+  const config = window.GOONER_FIREBASE_CONFIG;
+  if (!config?.apiKey || !config?.authDomain || !config?.projectId || !config?.appId) return;
+  try {
+    const { connectPredictionSharing } = await import("./arsenal-predictions-firebase.js");
+    sharedPredictions = await connectPredictionSharing({ seasonId: "2026-27", onStatus: () => {} });
+  } catch (error) { sharedPredictions = null; }
+}
+
 function showCommunityResults(results) {
   const topRated = Object.entries(results.ratings).sort((a, b) => b[1] - a[1])[0];
   const topMom = Object.entries(results.momVotes).sort((a, b) => b[1] - a[1])[0];
@@ -224,6 +249,7 @@ function updateSelectionCount() {
 
 function predictionData() {
   return {
+    nickname: elements.nickname.value.trim().slice(0, 20),
     arsenalScore: Number(elements.arsenalScore.value),
     opponentScore: Number(elements.opponentScore.value),
     comment: elements.predictionComment.value.trim(),
@@ -231,22 +257,58 @@ function predictionData() {
   };
 }
 
-function savePrediction() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(predictionData()));
-  elements.saveMessage.textContent = "この端末に予想を保存しました。";
+async function savePrediction() {
+  if ((fixture.kickoffUtc && Date.now() >= new Date(fixture.kickoffUtc).getTime()) || fixture.status === "FT") {
+    elements.saveMessage.textContent = "キックオフ後は予想を変更できません。";
+    return;
+  }
+  const data = predictionData();
+  if (!data.nickname) {
+    elements.saveMessage.textContent = "ニックネームを入力してください。";
+    elements.nickname.focus();
+    return;
+  }
+  localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify({ nickname: data.nickname }));
+  localStorage.setItem(predictionStorageKey(), JSON.stringify(data));
+  let history = {};
+  try { history = JSON.parse(localStorage.getItem(PREDICTION_HISTORY_KEY)) || {}; } catch (error) { history = {}; }
+  const record = {
+    ...data,
+    fixtureId: fixtureKey().replace(/[^a-zA-Z0-9-]/g, "-").toLowerCase(),
+    fixtureDate: fixture.date,
+    competition: fixture.competition,
+    opponent: fixture.opponent,
+    submittedAt: new Date().toISOString()
+  };
+  history[record.fixtureId] = record;
+  localStorage.setItem(PREDICTION_HISTORY_KEY, JSON.stringify(history));
+  elements.saveMessage.textContent = "予想をこの端末に保存しました。";
+  if (sharedPredictions) {
+    try {
+      await sharedPredictions.submit(record);
+      elements.saveMessage.textContent = "予想をみんなのタイムラインへ投稿しました。";
+    } catch (error) {
+      elements.saveMessage.textContent = "共有に接続できないため、この端末に保存しました。";
+    }
+  }
   drawShareCard();
 }
 
 function loadPrediction() {
   try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (!saved) return;
-    elements.arsenalScore.value = saved.arsenalScore ?? 2;
-    elements.opponentScore.value = saved.opponentScore ?? 1;
-    elements.predictionComment.value = saved.comment || "";
-    selectedPlayers = new Set(saved.lineup || []);
+    const saved = JSON.parse(localStorage.getItem(predictionStorageKey()));
+    if (saved) {
+      elements.nickname.value = saved.nickname || "";
+      elements.arsenalScore.value = saved.arsenalScore ?? 2;
+      elements.opponentScore.value = saved.opponentScore ?? 1;
+      elements.predictionComment.value = saved.comment || "";
+      selectedPlayers = new Set(saved.lineup || []);
+    }
   } catch (error) {
     selectedPlayers = new Set();
+  }
+  if (!elements.nickname.value) {
+    try { elements.nickname.value = JSON.parse(localStorage.getItem(PROFILE_STORAGE_KEY))?.nickname || ""; } catch (error) { elements.nickname.value = ""; }
   }
 }
 
@@ -399,6 +461,7 @@ Promise.all([
   loadPrediction();
   renderFixture();
   renderPlayers();
+  connectSharedPredictions();
   drawShareCard();
   setInterval(updateCountdown, 60000);
 });

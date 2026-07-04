@@ -21,7 +21,7 @@
         <span>Gooner’s Dushboard</span>
       </a>
       <div class="nav-links">
-        <a href="arsenal.html">ホーム / Home</a><a href="arsenal-matchday.html">試合 / Matchday</a><a href="arsenal-stats.html">スタッツ / Stats</a><a href="arsenal-transfer.html">移籍 / Transfers</a><a href="arsenal-articles.html">記事 / Articles</a><a href="arsenal-trivia.html">トリビア / Trivia</a><a href="arsenal-pubs.html">観戦店 / Japan Pubs</a><a href="arsenal-x.html">選手X / Players X</a>
+        <a href="arsenal.html">ホーム / Home</a><a href="arsenal-matchday.html">試合 / Matchday</a><a href="arsenal-predictions.html">予想 / Predictions</a><a href="arsenal-stats.html">スタッツ / Stats</a><a href="arsenal-transfer.html">移籍 / Transfers</a><a href="arsenal-articles.html">記事 / Articles</a><a href="arsenal-trivia.html">トリビア / Trivia</a><a href="arsenal-pubs.html">観戦店 / Japan Pubs</a><a href="arsenal-x.html">選手X / Players X</a>
       </div>
     </nav>
 
@@ -107,6 +107,10 @@
           <p class="eyebrow">Score Predictor</p>
           <h2>スコア予想</h2>
         </div>
+        <label class="nickname-field">
+          <span>ニックネーム / Nickname</span>
+          <input id="predictionNickname" type="text" maxlength="20" autocomplete="nickname" placeholder="表示名を入力">
+        </label>
         <div class="score-inputs">
           <label>
             <span>Arsenal</span>
@@ -123,6 +127,7 @@
           <textarea id="predictionComment" maxlength="120" placeholder="勝敗のポイントを120文字以内で"></textarea>
         </label>
         <button class="primary-button" id="savePrediction">予想を保存</button>
+        <a class="prediction-history-link" href="arsenal-predictions.html">みんなの予想・的中ランキングを見る →</a>
         <p class="save-message" id="saveMessage" aria-live="polite"></p>
       </article>
 
