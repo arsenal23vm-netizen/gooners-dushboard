@@ -97,6 +97,11 @@
         <div><span class="result-label">TOP RATED</span><strong id="topRatedResult">-</strong></div>
         <p>現在は、この端末に保存されたあなたの投票結果です。</p>
       </section>
+      <section class="community-results" id="communityResults" hidden>
+        <div class="community-heading"><div><span class="result-label">COMMUNITY RESULTS</span><h3>みんなの集計</h3></div><strong><span id="communityVoteCount">0</span>票</strong></div>
+        <div class="community-leaders"><p>MOM 1位 <strong id="communityMom">-</strong></p><p>平均点1位 <strong id="communityTopRated">-</strong></p></div>
+      </section>
+      <p class="firebase-status" id="firebaseStatus">共有集計を確認中...</p>
     </section>
 
     <section class="matchday-grid">
@@ -165,6 +170,7 @@
 
   <script src="ads-config.js"></script>
   <script src="ads.js"></script>
+  <script src="firebase-config.js"></script>
   <script src="arsenal-matchday.js"></script>
 </body>
 </html>

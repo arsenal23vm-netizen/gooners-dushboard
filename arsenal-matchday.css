@@ -87,6 +87,16 @@ main { padding-bottom: 24px; }
 .result-label { color: var(--arsenal-red); font-size: 9px; font-weight: 900; letter-spacing: .1em; }
 .rating-results strong { color: var(--navy); font-size: 15px; }
 .rating-results p { margin: 0; color: var(--muted); font-size: 10px; text-align: right; }
+.community-results { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 10px; }
+.community-heading, .community-leaders { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.community-heading h3 { margin: 2px 0 0; color: var(--navy); font-size: 17px; }
+.community-heading > strong { color: var(--arsenal-red); font-size: 18px; }
+.community-leaders { justify-content: flex-start; margin-top: 8px; }
+.community-leaders p { margin: 0; border-radius: 6px; padding: 7px 10px; color: var(--muted); background: #f4f5f7; font-size: 10px; }
+.community-leaders strong { margin-left: 5px; color: var(--navy); }
+.firebase-status { margin: 8px 0 0; color: var(--muted); font-size: 9px; }
+.firebase-status[data-state="connected"] { color: var(--green); }
+.firebase-status[data-state="error"] { color: var(--loss); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 .matchday-grid { display: grid; grid-template-columns: minmax(280px,.75fr) minmax(420px,1.2fr) minmax(340px,1fr); gap: 10px; margin-top: 10px; }
 .section-heading { margin-bottom: 11px; }
@@ -120,4 +130,4 @@ main { padding-bottom: 24px; }
 .ad-placeholder { display: grid; place-items: center; min-height: 70px; border: 1px dashed rgba(255,255,255,.35); border-radius: 6px; font-size: 12px; }
 @media (max-width: 1100px) { .rating-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 1050px) { .matchday-grid { grid-template-columns: 1fr 1fr; } .share-panel { grid-column: 1 / -1; } }
-@media (max-width: 700px) { .topbar { align-items: flex-start; flex-direction: column; } .matchup, .matchday-grid, .center-grid, .rating-list { grid-template-columns: 1fr; } .team { justify-content: flex-start; } .match-center-copy { order: -1; } .share-panel { grid-column: auto; } .ratings-header { align-items: flex-start; flex-direction: column; } .rating-results { align-items: flex-start; grid-template-columns: 1fr; } .rating-results p { text-align: left; } .rating-row { grid-template-columns: minmax(120px,1fr) minmax(110px,.8fr) auto; } }
+@media (max-width: 700px) { .topbar { align-items: flex-start; flex-direction: column; } .matchup, .matchday-grid, .center-grid, .rating-list { grid-template-columns: 1fr; } .team { justify-content: flex-start; } .match-center-copy { order: -1; } .share-panel { grid-column: auto; } .ratings-header { align-items: flex-start; flex-direction: column; } .rating-results { align-items: flex-start; grid-template-columns: 1fr; } .rating-results p { text-align: left; } .rating-row { grid-template-columns: minmax(120px,1fr) minmax(110px,.8fr) auto; } .community-heading, .community-leaders { align-items: flex-start; flex-direction: column; gap: 7px; } }

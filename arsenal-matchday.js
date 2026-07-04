@@ -5,6 +5,7 @@ const RATINGS_STORAGE_KEY = "gooners-matchday-ratings";
 let fixture = null;
 let players = [];
 let selectedPlayers = new Set();
+let sharedVoting = null;
 
 const elements = {
   competition: document.getElementById("competition"),
@@ -124,6 +125,41 @@ function renderRatingPlayers(squad) {
   }).join("");
   document.querySelectorAll(".score-control input").forEach(input => input.addEventListener("input", () => { input.nextElementSibling.value = input.value; }));
   if (saved) showRatingResults(saved);
+  connectSharedVoting(squad);
+}
+
+async function connectSharedVoting(squad) {
+  const status = document.getElementById("firebaseStatus");
+  const config = window.GOONER_FIREBASE_CONFIG;
+  if (!config?.apiKey || !config?.authDomain || !config?.projectId || !config?.appId) {
+    status.textContent = "現在は端末内投票です。Firebase設定後に共有集計へ切り替わります";
+    status.dataset.state = "local";
+    return;
+  }
+  try {
+    const { connectFanVoting } = await import("./arsenal-matchday-firebase.js");
+    sharedVoting = await connectFanVoting({
+      fixtureId: fixtureKey().replace(/[^a-zA-Z0-9-]/g, "-").toLowerCase(),
+      playerNames: squad.map(player => player.name),
+      onResults: showCommunityResults,
+      onStatus: state => {
+        status.textContent = state === "connected" ? "共有投票に接続中" : state === "error" ? "共有集計に接続できないため端末内に保存します" : "現在は端末内投票です。Firebase設定後に共有集計へ切り替わります";
+        status.dataset.state = state;
+      }
+    });
+  } catch (error) {
+    status.textContent = "現在は端末内投票です。Firebase設定後に共有集計へ切り替わります";
+    status.dataset.state = "local";
+  }
+}
+
+function showCommunityResults(results) {
+  const topRated = Object.entries(results.ratings).sort((a, b) => b[1] - a[1])[0];
+  const topMom = Object.entries(results.momVotes).sort((a, b) => b[1] - a[1])[0];
+  document.getElementById("communityVoteCount").textContent = results.voteCount;
+  document.getElementById("communityMom").textContent = topMom ? `${topMom[0]} (${topMom[1]}票)` : "-";
+  document.getElementById("communityTopRated").textContent = topRated ? `${topRated[0]} ${topRated[1].toFixed(1)}` : "-";
+  document.getElementById("communityResults").hidden = false;
 }
 
 function loadRatings() {
@@ -131,7 +167,7 @@ function loadRatings() {
   catch (error) { return null; }
 }
 
-function saveRatings(event) {
+async function saveRatings(event) {
   event.preventDefault();
   const mom = new FormData(event.currentTarget).get("mom");
   if (!mom) { document.getElementById("ratingMessage").textContent = "MOMを1人選んでください。"; return; }
@@ -142,8 +178,19 @@ function saveRatings(event) {
   const ballot = { ratings, mom, votedAt: new Date().toISOString() };
   allRatings[fixtureKey()] = ballot;
   localStorage.setItem(RATINGS_STORAGE_KEY, JSON.stringify(allRatings));
-  document.getElementById("ratingMessage").textContent = "採点とMOMをこの端末に保存しました。";
+  const message = document.getElementById("ratingMessage");
+  message.textContent = "投票を保存中...";
   showRatingResults(ballot);
+  if (sharedVoting) {
+    try {
+      await sharedVoting.submit(ballot);
+      message.textContent = "採点とMOMを共有投票に反映しました。";
+    } catch (error) {
+      message.textContent = "共有投票に接続できないため、この端末に保存しました。";
+    }
+  } else {
+    message.textContent = "採点とMOMをこの端末に保存しました。";
+  }
 }
 
 function showRatingResults(ballot) {
