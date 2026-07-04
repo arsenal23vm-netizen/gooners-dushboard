@@ -1,14 +1,14 @@
 const PLAYER_DATA_URL = "arsenal-x-players.json";
 
 const fallbackPlayers = [
-  { name: "Mikel Arteta", handle: "m8arteta", position: "Manager", group: "Staff" },
-  { name: "Arsenal", handle: "Arsenal", position: "Club official", group: "Club" },
-  { name: "Bukayo Saka", handle: "BukayoSaka87", position: "Forward" },
-  { name: "Declan Rice", handle: "_DeclanRice", position: "Midfielder" },
-  { name: "Martin Ødegaard", handle: "odegaard98", position: "Midfielder" },
-  { name: "Kai Havertz", handle: "kaihavertz29", position: "Forward" },
-  { name: "Gabriel Jesus", handle: "gabrieljesus9", position: "Forward" },
-  { name: "Jurrien Timber", handle: "JurrienTimber", position: "Defender" }
+  { name: "Mikel Arteta", displayName: "ミケル・アルテタ", handle: "m8arteta", position: "Manager", group: "Staff" },
+  { name: "Arsenal", displayName: "アーセナル", handle: "Arsenal", position: "Club official", group: "Club" },
+  { name: "Bukayo Saka", displayName: "ブカヨ・サカ", handle: "BukayoSaka87", position: "Forward" },
+  { name: "Declan Rice", displayName: "デクラン・ライス", handle: "_DeclanRice", position: "Midfielder" },
+  { name: "Martin Ødegaard", displayName: "マルティン・ウーデゴール", handle: "odegaard98", position: "Midfielder" },
+  { name: "Kai Havertz", displayName: "カイ・ハヴァーツ", handle: "kaihavertz29", position: "Forward" },
+  { name: "Gabriel Jesus", displayName: "ガブリエウ・ジェズス", handle: "gabrieljesus9", position: "Forward" },
+  { name: "Jurrien Timber", displayName: "ユリエン・ティンバー", handle: "JurrienTimber", position: "Defender" }
 ];
 
 const timelineGrid = document.getElementById("timelineGrid");
@@ -21,8 +21,8 @@ function createTimelineCard(player) {
   const handle = player.handle?.trim();
   const profileUrl = handle ? `https://twitter.com/${handle}` : "";
 
-  card.dataset.search = `${player.name} ${handle || ""} ${player.position} ${player.group || ""}`.toLowerCase();
-  card.querySelector("h2").textContent = player.name;
+  card.dataset.search = `${player.displayName || player.name} ${player.name} ${handle || ""} ${player.position} ${player.group || ""}`.toLowerCase();
+  card.querySelector("h2").textContent = player.displayName || player.name;
   card.querySelector(".position").textContent = handle
     ? `${player.group || "Player"} / ${player.position} / @${handle}`
     : `${player.group || "Player"} / ${player.position} / X未登録・未確認`;

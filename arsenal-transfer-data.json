@@ -14,7 +14,7 @@
       "tier": "high",
       "tierLabel": "High reliability",
       "date": "2026-04-09",
-      "title": "Arteta契約と夏の補強計画を読み解く",
+      "title": "アルテタ契約と夏の補強計画を読み解く",
       "summary": "BBC Sportによる、監督契約と夏のスカッド構築をめぐる背景分析。",
       "source": "BBC Sport",
       "url": "https://www.bbc.co.uk/sport/football/articles/cn78kdymmvpo"
@@ -33,7 +33,7 @@
       "tierLabel": "Watch",
       "date": "2026-06-22",
       "title": "若手ウインガーへの関心が報道",
-      "summary": "Jeremy Mongaへの関心が報じられています。公式発表ではないため、交渉段階と情報源を分けて追跡します。",
+      "summary": "ジェレミー・モンガへの関心が報じられています。公式発表ではないため、交渉段階と情報源を分けて追跡します。",
       "source": "FourFourTwo",
       "url": "https://www.fourfourtwo.com/team/arsenal-pip-manchester-united-and-chelsea-to-land-efl-wonderkid-report"
     }
@@ -41,6 +41,7 @@
   "radar": [
     {
       "player": "Morgan Rogers",
+      "displayName": "モーガン・ロジャーズ",
       "photo": "",
       "position": "AM / LW",
       "club": "Aston Villa",
@@ -54,6 +55,7 @@
     },
     {
       "player": "Jeremy Monga",
+      "displayName": "ジェレミー・モンガ",
       "photo": "",
       "position": "LW / RW",
       "club": "Leicester City",
@@ -67,6 +69,7 @@
     },
     {
       "player": "Bruno Guimarães",
+      "displayName": "ブルーノ・ギマランイス",
       "photo": "",
       "position": "CM / DM",
       "club": "Newcastle United",
@@ -80,6 +83,7 @@
     },
     {
       "player": "Sandro Tonali",
+      "displayName": "サンドロ・トナーリ",
       "photo": "",
       "position": "CM / DM",
       "club": "Newcastle United",
@@ -93,6 +97,7 @@
     },
     {
       "player": "Ayyoub Bouaddi",
+      "displayName": "アイユーブ・ブアディ",
       "photo": "",
       "position": "CM",
       "club": "LOSC Lille",
@@ -106,6 +111,7 @@
     },
     {
       "player": "Alex Scott",
+      "displayName": "アレックス・スコット",
       "photo": "",
       "position": "CM",
       "club": "Bournemouth",

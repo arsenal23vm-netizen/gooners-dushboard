@@ -34,6 +34,10 @@ function initials(name) {
   return name.split(" ").filter(Boolean).slice(0, 3).map(part => part[0]).join("").toUpperCase();
 }
 
+function playerLabel(name) {
+  return players.find(player => player.name === name)?.displayName || name;
+}
+
 function formatDate(date) {
   if (!date || date === "TBD") return "日程未定";
   return new Intl.DateTimeFormat("ja-JP", { year: "numeric", month: "long", day: "numeric", weekday: "short" }).format(new Date(`${date}T12:00:00`));
@@ -73,7 +77,7 @@ function renderFixture() {
 function renderEvents() {
   const events = fixture.events || [];
   document.getElementById("eventList").innerHTML = events.length ? events.map(event => `
-    <li><time>${event.minute}'</time><span class="event-icon">${event.type === "goal" ? "GOAL" : event.type === "card" ? "CARD" : "SUB"}</span><strong>${event.player}</strong><span>${event.detail || ""}</span></li>
+    <li><time>${event.minute}'</time><span class="event-icon">${event.type === "goal" ? "GOAL" : event.type === "card" ? "CARD" : "SUB"}</span><strong>${playerLabel(event.player)}</strong><span>${event.detail || ""}</span></li>
   `).join("") : '<li class="empty-event">イベント情報はまだありません</li>';
 }
 
@@ -92,7 +96,7 @@ function renderPlayers() {
     return `
       <label class="player-option" data-position="${position}">
         <input type="checkbox" value="${player.name}" ${checked}>
-        <span><strong>${player.name}</strong><span>${position}</span></span>
+        <span><strong>${player.displayName || player.name}</strong><span>${position}</span></span>
       </label>
     `;
   }).join("");
@@ -131,8 +135,8 @@ function renderRatingPlayers(squad) {
   document.getElementById("ratingList").innerHTML = squad.map(player => {
     const score = saved?.ratings?.[player.name] || 6;
     return `<div class="rating-row">
-      <div class="rating-player"><span class="player-initials">${initials(player.name)}</span><span><strong>${player.name}</strong><small>${normalizedPosition(player.position)}</small></span></div>
-      <label class="score-control"><span class="sr-only">${player.name}の採点</span><input type="range" data-player="${player.name}" min="1" max="10" step="0.5" value="${score}"><output>${score}</output></label>
+      <div class="rating-player"><span class="player-initials">${initials(player.displayName || player.name)}</span><span><strong>${player.displayName || player.name}</strong><small>${normalizedPosition(player.position)}</small></span></div>
+      <label class="score-control"><span class="sr-only">${player.displayName || player.name}の採点</span><input type="range" data-player="${player.name}" min="1" max="10" step="0.5" value="${score}"><output>${score}</output></label>
       <label class="mom-control"><input type="radio" name="mom" value="${player.name}" ${saved?.mom === player.name ? "checked" : ""}><span>MOM</span></label>
     </div>`;
   }).join("");
@@ -170,8 +174,8 @@ function showCommunityResults(results) {
   const topRated = Object.entries(results.ratings).sort((a, b) => b[1] - a[1])[0];
   const topMom = Object.entries(results.momVotes).sort((a, b) => b[1] - a[1])[0];
   document.getElementById("communityVoteCount").textContent = results.voteCount;
-  document.getElementById("communityMom").textContent = topMom ? `${topMom[0]} (${topMom[1]}票)` : "-";
-  document.getElementById("communityTopRated").textContent = topRated ? `${topRated[0]} ${topRated[1].toFixed(1)}` : "-";
+  document.getElementById("communityMom").textContent = topMom ? `${playerLabel(topMom[0])} (${topMom[1]}票)` : "-";
+  document.getElementById("communityTopRated").textContent = topRated ? `${playerLabel(topRated[0])} ${topRated[1].toFixed(1)}` : "-";
   document.getElementById("communityResults").hidden = false;
 }
 
@@ -209,8 +213,8 @@ async function saveRatings(event) {
 
 function showRatingResults(ballot) {
   const topRated = Object.entries(ballot.ratings).sort((a, b) => b[1] - a[1])[0];
-  document.getElementById("momResult").textContent = ballot.mom;
-  document.getElementById("topRatedResult").textContent = topRated ? `${topRated[0]} ${topRated[1].toFixed(1)}` : "-";
+  document.getElementById("momResult").textContent = playerLabel(ballot.mom);
+  document.getElementById("topRatedResult").textContent = topRated ? `${playerLabel(topRated[0])} ${topRated[1].toFixed(1)}` : "-";
   document.getElementById("ratingResults").hidden = false;
 }
 
@@ -297,7 +301,7 @@ function drawShareCard() {
   ctx.fillText(`STARTING XI (${data.lineup.length}/11)`, 64, 430);
   ctx.fillStyle = "white";
   ctx.font = "18px Arial";
-  wrapText(ctx, data.lineup.join(" / ") || "Lineup not selected", 64, 468, 820, 29, 4);
+  wrapText(ctx, data.lineup.map(playerLabel).join(" / ") || "スタメン未選択", 64, 468, 820, 29, 4);
   ctx.font = "bold 22px Arial";
   ctx.fillStyle = "#f4c542";
   ctx.fillText("あなたも予想してみてね！", 760, 590);

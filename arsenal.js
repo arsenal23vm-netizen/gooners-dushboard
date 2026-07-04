@@ -87,18 +87,18 @@ const fallbackData = {
     }
   ],
   scorers: [
-    { player: "Bukayo Saka", goals: 0 },
-    { player: "Martin Ødegaard", goals: 0 },
-    { player: "Gabriel Martinelli", goals: 0 },
-    { player: "Kai Havertz", goals: 0 },
-    { player: "Declan Rice", goals: 0 }
+    { player: "ブカヨ・サカ", goals: 0 },
+    { player: "マルティン・ウーデゴール", goals: 0 },
+    { player: "ガブリエウ・マルティネッリ", goals: 0 },
+    { player: "カイ・ハヴァーツ", goals: 0 },
+    { player: "デクラン・ライス", goals: 0 }
   ],
   assists: [
-    { player: "Martin Ødegaard", assists: 0 },
-    { player: "Bukayo Saka", assists: 0 },
-    { player: "Declan Rice", assists: 0 },
-    { player: "Gabriel Martinelli", assists: 0 },
-    { player: "Kai Havertz", assists: 0 }
+    { player: "マルティン・ウーデゴール", assists: 0 },
+    { player: "ブカヨ・サカ", assists: 0 },
+    { player: "デクラン・ライス", assists: 0 },
+    { player: "ガブリエウ・マルティネッリ", assists: 0 },
+    { player: "カイ・ハヴァーツ", assists: 0 }
   ]
 };
 

@@ -1,174 +1,203 @@
 [
   {
     "name": "Mikel Arteta",
+    "displayName": "ミケル・アルテタ",
     "handle": "m8arteta",
     "position": "Manager",
     "group": "Staff"
   },
   {
     "name": "Arsenal",
+    "displayName": "アーセナル",
     "handle": "Arsenal",
     "position": "Club official",
     "group": "Club"
   },
   {
     "name": "David Raya",
+    "displayName": "ダビド・ラヤ",
     "handle": "daviidraya1",
     "position": "Goalkeeper",
     "group": "Player"
   },
   {
     "name": "Kepa Arrizabalaga",
+    "displayName": "ケパ・アリサバラガ",
     "handle": "kepa_46",
     "position": "Goalkeeper",
     "group": "Player"
   },
   {
     "name": "William Saliba",
+    "displayName": "ウィリアム・サリバ",
     "handle": "wilosaliba",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Gabriel Magalhães",
+    "displayName": "ガブリエウ・マガリャンイス",
     "handle": "biel_m04",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Jurrien Timber",
+    "displayName": "ユリエン・ティンバー",
     "handle": "JurrienTimber",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Ben White",
+    "displayName": "ベン・ホワイト",
     "handle": "ben6white",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Riccardo Calafiori",
+    "displayName": "リッカルド・カラフィオーリ",
     "handle": "riccalafiori",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Oleksandr Zinchenko",
+    "displayName": "オレクサンドル・ジンチェンコ",
     "handle": "Zinchenko_96",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Takehiro Tomiyasu",
+    "displayName": "冨安健洋",
     "handle": "Tomiyasu",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Jakub Kiwior",
+    "displayName": "ヤクブ・キヴィオル",
     "handle": "",
     "position": "Defender",
     "group": "Player"
   },
   {
     "name": "Myles Lewis-Skelly",
+    "displayName": "マイルズ・ルイス＝スケリー",
     "handle": "",
     "position": "Defender / Midfielder",
     "group": "Player"
   },
   {
     "name": "Declan Rice",
+    "displayName": "デクラン・ライス",
     "handle": "_DeclanRice",
     "position": "Midfielder",
     "group": "Player"
   },
   {
     "name": "Martin Ødegaard",
+    "displayName": "マルティン・ウーデゴール",
     "handle": "odegaard98",
     "position": "Midfielder",
     "group": "Player"
   },
   {
     "name": "Kai Havertz",
+    "displayName": "カイ・ハヴァーツ",
     "handle": "kaihavertz29",
     "position": "Midfielder / Forward",
     "group": "Player"
   },
   {
     "name": "Mikel Merino",
+    "displayName": "ミケル・メリーノ",
     "handle": "mikelmerino1",
     "position": "Midfielder",
     "group": "Player"
   },
   {
     "name": "Martin Zubimendi",
+    "displayName": "マルティン・スビメンディ",
     "handle": "",
     "position": "Midfielder",
     "group": "Player"
   },
   {
     "name": "Ethan Nwaneri",
+    "displayName": "イーサン・ヌワネリ",
     "handle": "",
     "position": "Midfielder / Forward",
     "group": "Player"
   },
   {
     "name": "Bukayo Saka",
+    "displayName": "ブカヨ・サカ",
     "handle": "BukayoSaka87",
     "position": "Forward",
     "group": "Player"
   },
   {
     "name": "Gabriel Martinelli",
+    "displayName": "ガブリエウ・マルティネッリ",
     "handle": "gabimartinelli",
     "position": "Forward",
     "group": "Player"
   },
   {
     "name": "Leandro Trossard",
+    "displayName": "レアンドロ・トロサール",
     "handle": "LTrossard",
     "position": "Forward",
     "group": "Player"
   },
   {
     "name": "Gabriel Jesus",
+    "displayName": "ガブリエウ・ジェズス",
     "handle": "gabrieljesus9",
     "position": "Forward",
     "group": "Player"
   },
   {
     "name": "Reiss Nelson",
+    "displayName": "リース・ネルソン",
     "handle": "ReissNelson9",
     "position": "Forward",
     "group": "Player"
   },
   {
     "name": "Albert Stuivenberg",
+    "displayName": "アルベルト・スタイフェンベルフ",
     "handle": "",
     "position": "Assistant manager",
     "group": "Staff"
   },
   {
     "name": "Miguel Molina",
+    "displayName": "ミゲル・モリーナ",
     "handle": "",
     "position": "Assistant coach",
     "group": "Staff"
   },
   {
     "name": "Gabriel Heinze",
+    "displayName": "ガブリエル・エインセ",
     "handle": "",
     "position": "First-team coach",
     "group": "Staff"
   },
   {
     "name": "Nicolas Jover",
+    "displayName": "ニコラ・ジョヴェール",
     "handle": "",
     "position": "Set-piece coach",
     "group": "Staff"
   },
   {
     "name": "Iñaki Caña",
+    "displayName": "イニャキ・カニャ",
     "handle": "",
     "position": "Goalkeeping coach",
     "group": "Staff"
