@@ -26,12 +26,18 @@
   ],
   "fixtures": [
     {
-      "date": "2026-08-21",
-      "competition": "Premier League",
-      "opponent": "Coventry City",
-      "venue": "Home",
-      "location": "Emirates Stadium",
-      "opponentForm": ["win", "loss", "draw", "unknown", "win"]
+      "date": "2026-08-01",
+      "kickoffUtc": "2026-08-01T18:00:00Z",
+      "kickoffJst": "8月2日 03:00",
+      "competition": "Pre-Season Friendly",
+      "opponent": "Girona",
+      "status": "FT",
+      "arsenalScore": 2,
+      "opponentScore": 1,
+      "venue": "Away",
+      "location": "Estadi Montilivi, Girona",
+      "opponentForm": ["win", "loss", "draw", "unknown", "win"],
+      "participants": ["David Raya", "William Saliba", "Bukayo Saka"]
     }
   ],
   "scorers": [

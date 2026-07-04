@@ -44,7 +44,7 @@ function updateCountdown() {
     elements.countdown.textContent = "正式日程待ち";
     return;
   }
-  const difference = new Date(`${fixture.date}T20:00:00`).getTime() - Date.now();
+  const difference = new Date(fixture.kickoffUtc || `${fixture.date}T20:00:00`).getTime() - Date.now();
   if (difference <= 0) {
     elements.countdown.textContent = "Matchday";
     return;
@@ -56,8 +56,8 @@ function updateCountdown() {
 
 function renderFixture() {
   elements.competition.textContent = fixture.competition;
-  elements.matchDate.textContent = formatDate(fixture.date);
-  elements.matchVenue.textContent = `${fixture.venue === "Home" ? "ホーム" : fixture.venue === "Away" ? "アウェイ" : "会場未定"} / ${fixture.location}`;
+  elements.matchDate.textContent = `${formatDate(fixture.date)}${fixture.kickoffJst ? ` / 日本時間 ${fixture.kickoffJst}` : ""}`;
+  elements.matchVenue.textContent = `${fixture.venue === "Home" ? "ホーム" : fixture.venue === "Away" ? "アウェイ" : fixture.venue === "Neutral" ? "中立地" : "会場未定"} / ${fixture.location}`;
   elements.opponentName.textContent = fixture.opponent;
   elements.opponentBadge.textContent = initials(fixture.opponent || "TBD");
   elements.opponentScoreLabel.textContent = fixture.opponent;
@@ -110,10 +110,23 @@ function renderPlayers() {
     });
   });
   updateSelectionCount();
-  renderRatingPlayers(squad);
+  renderRatingPlayers(squad.filter(player => (fixture.participants || []).includes(player.name)));
 }
 
 function renderRatingPlayers(squad) {
+  const votingOpen = fixture.status === "FT" && squad.length > 0;
+  const form = document.getElementById("ratingsForm");
+  form.querySelector('button[type="submit"]').disabled = !votingOpen;
+  document.getElementById("resetRatings").disabled = !votingOpen;
+  document.getElementById("ratingsAvailability").textContent = votingOpen
+    ? `${fixture.opponent}戦に出場した${squad.length}選手を採点できます。`
+    : "試合終了後、実際に出場した選手だけを採点できます。現在は投票できません。";
+  if (!votingOpen) {
+    document.getElementById("ratingList").innerHTML = '<p class="ratings-locked">シーズン開幕前のため、現在は投票できません。次戦終了後に出場選手を公開します。</p>';
+    document.getElementById("firebaseStatus").textContent = "投票受付前";
+    document.getElementById("firebaseStatus").dataset.state = "local";
+    return;
+  }
   const saved = loadRatings();
   document.getElementById("ratingList").innerHTML = squad.map(player => {
     const score = saved?.ratings?.[player.name] || 6;
@@ -169,6 +182,7 @@ function loadRatings() {
 
 async function saveRatings(event) {
   event.preventDefault();
+  if (fixture.status !== "FT" || !(fixture.participants || []).length) return;
   const mom = new FormData(event.currentTarget).get("mom");
   if (!mom) { document.getElementById("ratingMessage").textContent = "MOMを1人選んでください。"; return; }
   const ratings = {};

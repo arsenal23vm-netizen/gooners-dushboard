@@ -51,12 +51,18 @@ http://localhost:8000/arsenal.html
 
 ## 今後5試合の項目
 
-- `date`: 日付。例: `2026-08-21`
+- `date`: 現地日付。例: `2026-08-01`
+- `kickoffUtc`: キックオフのUTC日時。例: `2026-08-01T18:00:00Z`
+- `kickoffJst`: 画面に表示する日本時間。例: `8月2日 03:00`
 - `competition`: 大会名。例: `Premier League`
 - `opponent`: 対戦相手
-- `venue`: `Home`、`Away`、`TBD` のいずれか
+- `venue`: `Home`、`Away`、`Neutral`、`TBD` のいずれか
 - `location`: スタジアム名や場所
 - `opponentForm`: 相手の直近5戦
+- `status`: 開催前は `NEXT` または `UPCOMING`、試合終了後は `FT`
+- `participants`: 実際にピッチへ出場したアーセナル選手名の配列
+
+選手採点とMOM投票は、`status` が `FT` で、`participants` に1人以上登録された場合だけ開きます。ベンチ入りのみで出場しなかった選手は追加しません。
 
 `opponentForm` は次の値を使います。
 

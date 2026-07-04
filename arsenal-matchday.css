@@ -67,6 +67,8 @@ main { padding-bottom: 24px; }
 .ratings-panel { margin-top: 10px; }
 .rating-legend { display: flex; gap: 10px; color: var(--muted); font-size: 10px; font-weight: 800; }
 .rating-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; max-height: 330px; overflow-y: auto; }
+.ratings-locked { grid-column: 1 / -1; margin: 0; border: 1px dashed var(--line); border-radius: 7px; padding: 30px 16px; color: var(--muted); background: #f7f7f8; font-size: 12px; font-weight: 800; text-align: center; }
+.vote-actions button:disabled { cursor: not-allowed; opacity: .45; }
 .rating-row { display: grid; grid-template-columns: minmax(130px,1fr) minmax(110px,.8fr) auto; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 7px; padding: 7px; background: white; }
 .rating-player { display: flex; align-items: center; gap: 7px; min-width: 0; }
 .player-initials { display: grid; flex: 0 0 auto; place-items: center; width: 30px; height: 30px; border-radius: 50%; color: white; background: var(--navy); font-size: 9px; font-weight: 900; }

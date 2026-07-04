@@ -320,6 +320,7 @@ tbody tr:last-child td {
 .fixture-date {
   font-weight: 900;
 }
+.fixture-date span { display: block; margin-top: 2px; font-size: 9px; font-weight: 700; }
 
 .fixture-opponent strong {
   display: block;

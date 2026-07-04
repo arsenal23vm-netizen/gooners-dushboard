@@ -80,12 +80,12 @@
       <div class="ratings-header">
         <div class="section-heading">
           <p class="eyebrow">Fan Player Ratings</p><h2 id="ratingsTitle">選手採点・MOM投票</h2>
-          <p class="section-note">各選手を1〜10点で評価し、MOMを1人選んでください。</p>
+          <p class="section-note" id="ratingsAvailability">試合終了後、実際に出場した選手だけを採点できます。</p>
         </div>
         <div class="rating-legend"><span>1 厳しい</span><span>6 標準</span><span>10 圧巻</span></div>
       </div>
       <form id="ratingsForm">
-        <div class="rating-list" id="ratingList"></div>
+        <div class="rating-list" id="ratingList"><p class="ratings-locked">シーズン開幕前のため、現在は投票できません。</p></div>
         <div class="vote-actions">
           <button class="primary-button" type="submit">採点とMOMを投票</button>
           <button class="secondary-button" id="resetRatings" type="button">入力をリセット</button>

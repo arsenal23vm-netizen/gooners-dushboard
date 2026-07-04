@@ -26,7 +26,7 @@ const fallbackTeams = [
 const fallbackData = {
   meta: {
     source: "fallback",
-    updatedAt: "2026-06-21",
+    updatedAt: "2026-07-04",
     premierLeagueMode: "開幕前: アルファベット順",
     championsLeagueMode: "開幕前: 仮順位表"
   },
@@ -66,43 +66,23 @@ const fallbackData = {
   })),
   fixtures: [
     {
-      date: "2026-08-21",
-      competition: "Premier League",
-      opponent: "Coventry City",
-      venue: "Home",
-      location: "Emirates Stadium",
+      date: "2026-08-01", kickoffJst: "8月2日 03:00", competition: "Pre-Season Friendly", opponent: "Girona", venue: "Away", location: "Estadi Montilivi, Girona",
       opponentForm: ["unknown", "unknown", "unknown", "unknown", "unknown"]
     },
     {
-      date: "TBD",
-      competition: "Premier League",
-      opponent: "TBD",
-      venue: "TBD",
-      location: "PL fixture pending",
+      date: "2026-08-05", kickoffJst: "8月6日 03:30", competition: "Pre-Season Friendly", opponent: "Real Betis", venue: "Neutral", location: "Aviva Stadium, Dublin",
       opponentForm: ["unknown", "unknown", "unknown", "unknown", "unknown"]
     },
     {
-      date: "TBD",
-      competition: "Premier League",
-      opponent: "TBD",
-      venue: "TBD",
-      location: "PL fixture pending",
+      date: "2026-08-09", kickoffJst: "8月9日 22:00", competition: "Emirates Cup", opponent: "Borussia Dortmund", venue: "Home", location: "Emirates Stadium",
       opponentForm: ["unknown", "unknown", "unknown", "unknown", "unknown"]
     },
     {
-      date: "TBD",
-      competition: "UEFA Champions League",
-      opponent: "TBD",
-      venue: "TBD",
-      location: "UCL draw pending",
+      date: "2026-08-12", kickoffJst: "8月13日 03:30", competition: "Pre-Season Friendly", opponent: "Como 1907", venue: "Home", location: "Emirates Stadium",
       opponentForm: ["unknown", "unknown", "unknown", "unknown", "unknown"]
     },
     {
-      date: "TBD",
-      competition: "Premier League",
-      opponent: "TBD",
-      venue: "TBD",
-      location: "PL fixture pending",
+      date: "2026-08-16", kickoffJst: "8月16日 23:00", competition: "FA Community Shield", opponent: "Manchester City", venue: "Neutral", location: "Principality Stadium, Cardiff",
       opponentForm: ["unknown", "unknown", "unknown", "unknown", "unknown"]
     }
   ],
@@ -210,6 +190,10 @@ function formatVenue(venue) {
     return "アウェイ";
   }
 
+  if (venue === "Neutral") {
+    return "中立地";
+  }
+
   return "未定";
 }
 
@@ -223,7 +207,7 @@ function renderFormDots(form) {
 function renderFixtures(fixtures) {
   selectors.fixtureList.innerHTML = fixtures.slice(0, 5).map(match => `
     <article class="fixture-card">
-      <div class="fixture-date">${match.date}</div>
+      <div class="fixture-date">${match.date}<span>${match.kickoffJst ? ` / 日本時間 ${match.kickoffJst}` : ""}</span></div>
       <div class="fixture-opponent">
         <strong>${match.opponent}</strong>
         <span>${match.competition}</span>
