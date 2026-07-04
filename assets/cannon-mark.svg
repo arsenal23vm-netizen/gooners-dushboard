@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 44" role="img" aria-label="Cannon mark">
+  <path fill="#d0021b" d="M8 13h38l11 5v8l-11 5H8l5-6v-6z"/>
+  <path fill="#151515" d="M45 17h14v10H45zM57 15h8v14h-8zM20 29h28v5H20z"/>
+  <circle cx="25" cy="34" r="9" fill="#d0021b"/>
+  <circle cx="25" cy="34" r="4" fill="#fff"/>
+  <circle cx="45" cy="34" r="7" fill="#151515"/>
+  <circle cx="45" cy="34" r="3" fill="#fff"/>
+</svg>
