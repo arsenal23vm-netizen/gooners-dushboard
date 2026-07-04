@@ -280,6 +280,9 @@ function drawShareCard() {
   ctx.fillStyle = "#f4c542";
   ctx.font = "bold 24px Arial";
   ctx.fillText("GOONER’S DUSHBOARD / MATCHDAY PREDICTION", 64, 70);
+  ctx.font = '20px Arial, "Yu Gothic", sans-serif';
+  ctx.fillStyle = "rgba(255,255,255,.82)";
+  ctx.fillText("アーセナルの試合・移籍情報をまとめてチェックできるファンサイト", 64, 108);
   ctx.fillStyle = "white";
   ctx.font = "bold 55px Arial";
   ctx.fillText(`ARSENAL  ${data.arsenalScore} - ${data.opponentScore}  ${fixture.opponent.toUpperCase()}`, 64, 175);
@@ -296,13 +299,16 @@ function drawShareCard() {
   ctx.font = "18px Arial";
   wrapText(ctx, data.lineup.join(" / ") || "Lineup not selected", 64, 468, 820, 29, 4);
   ctx.font = "bold 22px Arial";
+  ctx.fillStyle = "#f4c542";
+  ctx.fillText("あなたも予想してみてね！", 760, 590);
+  ctx.fillStyle = "white";
   ctx.fillText("arsenal23vm-netizen.github.io/gooners-dushboard", 64, 590);
   updateShareLinks();
 }
 
 function shareText() {
   const data = predictionData();
-  return `Arsenal ${data.arsenalScore}-${data.opponentScore} ${fixture.opponent}\n${data.comment || "COYG!"}\n#Arsenal #GoonersDushboard`;
+  return `Gooner’s Dushboardは、アーセナルの試合・移籍情報などをまとめてチェックできるファンサイトです。\n\nArsenal ${data.arsenalScore} - ${data.opponentScore} ${fixture.opponent} と予想しました！\n${data.comment || "COYG!"}\n\nあなたも予想してみてね！\n#Arsenal #アーセナル #GoonersDushboard`;
 }
 
 function updateShareLinks() {
@@ -310,13 +316,41 @@ function updateShareLinks() {
 }
 
 async function sharePrediction() {
-  const data = { title: "Arsenal Matchday Prediction", text: shareText(), url: location.href };
-  if (navigator.share) {
-    await navigator.share(data).catch(() => {});
+  drawShareCard();
+  const blob = await canvasBlob();
+  const file = blob ? new File([blob], `arsenal-prediction-${fixture.date}.png`, { type: "image/png" }) : null;
+  const text = `${shareText()}\n${location.href}`;
+  const fileShare = file && navigator.canShare?.({ files: [file] });
+  if (navigator.share && fileShare) {
+    await navigator.share({ title: "Arsenal Matchday Prediction", text, files: [file] }).catch(() => {});
+  } else if (navigator.share) {
+    await navigator.share({ title: "Arsenal Matchday Prediction", text }).catch(() => {});
   } else {
-    await navigator.clipboard.writeText(`${data.text}\n${data.url}`);
-    elements.saveMessage.textContent = "共有文をコピーしました。";
+    await navigator.clipboard.writeText(text);
+    downloadCard();
+    elements.saveMessage.textContent = "共有文をコピーし、投稿画像を保存しました。";
   }
+}
+
+function canvasBlob() {
+  return new Promise(resolve => elements.canvas.toBlob(resolve, "image/png"));
+}
+
+async function prepareXImage() {
+  drawShareCard();
+  const blob = await canvasBlob();
+  if (!blob) return;
+  if (window.ClipboardItem && navigator.clipboard?.write) {
+    try {
+      await navigator.clipboard.write([new window.ClipboardItem({ "image/png": blob })]);
+      elements.saveMessage.textContent = "投稿画像をコピーしました。Xの投稿画面で貼り付けてください。";
+      return;
+    } catch (error) {
+      // Clipboard image copying is unavailable in some browsers.
+    }
+  }
+  downloadCard();
+  elements.saveMessage.textContent = "投稿画像を保存しました。Xの投稿画面で添付してください。";
 }
 
 function downloadCard() {
@@ -329,6 +363,7 @@ function downloadCard() {
 
 document.getElementById("savePrediction").addEventListener("click", savePrediction);
 document.getElementById("shareButton").addEventListener("click", sharePrediction);
+elements.xShareButton.addEventListener("click", prepareXImage);
 document.getElementById("downloadCard").addEventListener("click", downloadCard);
 document.getElementById("copyLink").addEventListener("click", async () => {
   await navigator.clipboard.writeText(location.href);
