@@ -261,3 +261,28 @@ async function loadDashboardData() {
 }
 
 loadDashboardData();
+
+async function loadContentHub() {
+  try {
+    const urls = [DATA_URL, "arsenal-transfer-data.json", "arsenal-articles.json", "arsenal-trivia-data.json", "arsenal-pubs-data.json", "arsenal-x-players.json"];
+    const [dashboard, transfers, articles, trivia, prefectures, people] = await Promise.all(urls.map(url => fetch(url, { cache: "no-store" }).then(response => {
+      if (!response.ok) throw new Error(`${url}: ${response.status}`);
+      return response.json();
+    })));
+    const next = dashboard.fixtures?.[0];
+    const latestArticle = [...articles].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))[0];
+    const latestTrivia = [...trivia].sort((a, b) => (b.sortKey || 0) - (a.sortKey || 0))[0];
+    const venueCount = prefectures.reduce((total, prefecture) => total + (prefecture.venues?.length || 0), 0);
+    const playerCount = people.filter(person => person.group === "Player").length;
+    document.getElementById("hubNextMatch").textContent = next ? `${next.opponent}戦 / 日本時間 ${next.kickoffJst || next.date}` : "次戦日程を確認中";
+    document.getElementById("hubTransfers").textContent = `注目候補 ${transfers.radar?.length || 0}名 / ${transfers.radar?.slice(0, 2).map(item => item.displayName || item.player).join("・") || "更新準備中"}`;
+    document.getElementById("hubArticles").textContent = latestArticle ? `最新: ${latestArticle.title}` : "記事を準備中";
+    document.getElementById("hubTrivia").textContent = `${trivia.length}件 / ${latestTrivia?.topic || "更新準備中"}`;
+    document.getElementById("hubPubs").textContent = `${prefectures.length}都道府県 / 掲載${venueCount}店舗`;
+    document.getElementById("hubPlayers").textContent = `選手${playerCount}名・関係者を掲載`;
+  } catch (error) {
+    document.querySelectorAll(".hub-card > strong").forEach(item => { item.textContent = "ページで最新情報を確認"; });
+  }
+}
+
+loadContentHub();
